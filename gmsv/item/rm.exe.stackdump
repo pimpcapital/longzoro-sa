@@ -1,0 +1,7 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=7C915F9C
+eax=7C915F9C ebx=187BCDF0 ecx=611034B0 edx=FFFFFFFF esi=00000000 edi=187BCE64
+ebp=003D0000 esp=187BCDB4 program=J:\cygwin\bin\rm.exe, pid 6080, thread unknown (0x464)
+cs=001B ds=0023 es=0023 fs=003B gs=0000 ss=0023
+Stack trace:
+Frame     Function  Args
+003D0000  7C915F9C  (D0FF7C91
