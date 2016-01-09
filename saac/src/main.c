@@ -9,7 +9,7 @@
 // CoolFish: Family 2001/5/9
 #include "acfamily.h"
 #include "version.h"
-#ifdef _SEND_EFFECT				  // WON ADD ËÍÏÂÑ©¡¢ÏÂÓêµÈÌØÐ§ 
+#ifdef _SEND_EFFECT				  // WON ADD ï¿½ï¿½ï¿½ï¿½Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ 
 #include "recv.h"
 #endif
 
@@ -76,18 +76,18 @@ int mbuse ;
 int cpuuse;
 
 
-int mainsockfd;             /* accept ¼°  ÓòÂ¦ÐÑ±åÖÐÄ¾ÔÂ */
-struct sockaddr_in localaddr;       /* bind ÔÊÔÂÊ§ÓñÒÁµ© */
+int mainsockfd;             /* accept ï¿½ï¿½  ï¿½ï¿½Â¦ï¿½Ñ±ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ */
+struct sockaddr_in localaddr;       /* bind ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
     
 
-struct connection *con;        /* ÎìÉúÛÍÆËÒà¼þ     */
+struct connection *con;        /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½     */
 
-static int mb_finder=0;              /* mb¼°ÎëÎåÃ«¸¹³ñÔÊÔÂÐ×»§¼°
-                               ¸¹³ñÐþÓÀÃó¼°ÞË  ·¤Ê¢åÃ */
+static int mb_finder=0;              /* mbï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×»ï¿½ï¿½ï¿½
+                               ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½Ê¢ï¿½ï¿½ */
 // WON FIX
 //char tmpbuf[65536];
 char tmpbuf[1024*32];
-//char tmpbuf[65536*3];         /* readåÃ */
+//char tmpbuf[65536*3];         /* readï¿½ï¿½ */
 
 struct timeval select_timeout;
 
@@ -108,23 +108,23 @@ int tcpstruct_connect( char *addr , int port );
 void set_nodelay( int sock );
 
 
-#define OK     0        /* ÔÀ   */
-#define TCPSTRUCT_ENOMEM -1       /* malloc ÁÃ   */
-#define TCPSTRUCT_ESOCK -2        /* socket ÁÃ   */
-#define TCPSTRUCT_EBIND -3        /* bind ÁÃ   */
-#define TCPSTRUCT_ELISTEN -4      /* listen ÁÃ   */
-#define TCPSTRUCT_EBUG -6         /* ÌïºëÆ¥Ø¤ÔÂ */
-#define TCPSTRUCT_EINVCIND -7     /* con³ß¼°index»¥ÔÆ¾®ØÆÖÐ·½ */
-#define TCPSTRUCT_EREADFIN -8     /* read ÔÊÔÂ·¸¡õÕý»¥Ø¦ÈÊ»¯ closed by remote */
-#define TCPSTRUCT_EHOST -9        /* gethostbyname ÁÃ   */
-#define TCPSTRUCT_ECONNECT -10    /* connect ÁÃ   */
-#define TCPSTRUCT_ECFULL -11      /* con »¥ÖÐÔÈÌìÖÐ */
-#define TCPSTRUCT_ETOOLONG -12    /* µæ»¥Ø¦»¥ÔÊ¿º */
-#define TCPSTRUCT_EMBFULL -13     /* mb »¥ÖÐÔÈÌìÖÐ  */
-#define TCPSTRUCT_ECLOSEAGAIN -14 /* close »¥2¼Ô½ñÄ¾Ð× */
+#define OK     0        /* ï¿½ï¿½   */
+#define TCPSTRUCT_ENOMEM -1       /* malloc ï¿½ï¿½   */
+#define TCPSTRUCT_ESOCK -2        /* socket ï¿½ï¿½   */
+#define TCPSTRUCT_EBIND -3        /* bind ï¿½ï¿½   */
+#define TCPSTRUCT_ELISTEN -4      /* listen ï¿½ï¿½   */
+#define TCPSTRUCT_EBUG -6         /* ï¿½ï¿½ï¿½Æ¥Ø¤ï¿½ï¿½ */
+#define TCPSTRUCT_EINVCIND -7     /* conï¿½ß¼ï¿½indexï¿½ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ */
+#define TCPSTRUCT_EREADFIN -8     /* read ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¦ï¿½Ê»ï¿½ closed by remote */
+#define TCPSTRUCT_EHOST -9        /* gethostbyname ï¿½ï¿½   */
+#define TCPSTRUCT_ECONNECT -10    /* connect ï¿½ï¿½   */
+#define TCPSTRUCT_ECFULL -11      /* con ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
+#define TCPSTRUCT_ETOOLONG -12    /* ï¿½æ»¥Ø¦ï¿½ï¿½ï¿½Ê¿ï¿½ */
+#define TCPSTRUCT_EMBFULL -13     /* mb ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  */
+#define TCPSTRUCT_ECLOSEAGAIN -14 /* close ï¿½ï¿½2ï¿½Ô½ï¿½Ä¾ï¿½ï¿½ */
 
 
-int port;               /* ±Ø¡õØ©ÈÓ¡õÌï¡õ»¥ÌÎÁ¸ØÆ»¯ÈÊÔÂºÌ¡õÐþ */
+int port;               /* ï¿½Ø¡ï¿½Ø©ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½ï¿½ÂºÌ¡ï¿½ï¿½ï¿½ */
 int Total_Charlist;
 int Expired_mail;
 int Del_Family_or_Member;
@@ -150,12 +150,12 @@ void checkMissionTimelimit( void);
 static int initRankTable( void );
 
 /*
-  sigaction°×ÛÍ
+  sigactionï¿½ï¿½ï¿½ï¿½
  */
 void sighandle( int a )
 {
-  if (a==SIGUSR1) log("sigusr1ÐÅºÅ!\n");
-  log("µÃµ½Ò»¸öÐÅºÅ! Òì³£ÖÐ¶Ï......\n" );
+  if (a==SIGUSR1) log("sigusr1ï¿½Åºï¿½!\n");
+  log("ï¿½Ãµï¿½Ò»ï¿½ï¿½ï¿½Åºï¿½! ï¿½ì³£ï¿½Ð¶ï¿½......\n" );
   writeFamily(familydir);
   writeFMPoint(fmpointdir);
   writeFMSMemo(fmsmemodir);
@@ -198,14 +198,14 @@ void sigusr1(int a)
       sprintf(key, "echo \"%s\" > ./sigusr1.result", buf);
       system(key);
     break;
-#ifdef _SEND_EFFECT		   // WON ADD ËÍÏÂÑ©¡¢ÏÂÓêµÈÌØÐ§
+#ifdef _SEND_EFFECT		   // WON ADD ï¿½ï¿½ï¿½ï¿½Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 	case 'E':	
-		log("\nAC Ïò GS ·¢ËÍÏÂÑ©ÌØÐ§!!\n");
+		log("\nAC ï¿½ï¿½ GS ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ©ï¿½ï¿½Ð§!!\n");
 	    SendEffect(&key[1]);
 	break;
 #endif
 
-	case 'L':  // Robin ÁÐ³öËùÓÐServerÁ¬Ïß
+	case 'L':  // Robin ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½Serverï¿½ï¿½ï¿½ï¿½
 		log("\nList All Server Conncet!!!!!\n");
 		for( i =0; i <MAXCONNECTION; i++)
 			if( gs[i].use)
@@ -243,11 +243,11 @@ int login_game_server( int ti , char *svname , char *svpas ,
 #else
 		if( strcmp( svpas , svpass ) == 0 ){
 #endif
-        log( "·þÎñÆ÷ÃÜÂëÕýÈ· %s\n" , svname );
+        log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È· %s\n" , svname );
     } else {
-        log( "·þÎñÆ÷ÃÜÂë´íÎó %s\n" , svname );
-        snprintf( result , resultlen , "Ê§°Ü" );
-        snprintf( retdata , retdatalen , "ÃÜÂë´íÎó" );
+        log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ %s\n" , svname );
+        snprintf( result , resultlen , "Ê§ï¿½ï¿½" );
+        snprintf( retdata , retdatalen , "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½" );
         return 0;
     }
 #ifdef _VIP
@@ -309,59 +309,59 @@ static int readConfig( char *path )
 
         if( strcmp( command , "port" ) == 0 ){
             port = atoi( param );
-        		log( "¶Ë¿Ú:%d\n",port );
+        		log( "ï¿½Ë¿ï¿½:%d\n",port );
         } else if( strcmp( command , "logdir" ) == 0 ){
             snprintf( logdir , sizeof( logdir) , param );
-            log( "ÈÕÖ¾Ä¿Â¼:%s\n",logdir );
+            log( "ï¿½ï¿½Ö¾Ä¿Â¼:%s\n",logdir );
         } else if( strcmp( command , "chardir" ) == 0 ){
             snprintf( chardir , sizeof( chardir) , param );
-            log( "µµ°¸Ä¿Â¼:%s\n",chardir );
+            log( "ï¿½ï¿½ï¿½ï¿½Ä¿Â¼:%s\n",chardir );
 #ifdef _SLEEP_CHAR
 						snprintf( sleepchardir , sizeof( sleepchardir), "%s_sleep", chardir);
-						log( "Ë¯ÃßÄ¿Â¼:%s\n",sleepchardir );
+						log( "Ë¯ï¿½ï¿½Ä¿Â¼:%s\n",sleepchardir );
 #endif
         } else if( strcmp( command , "pass" ) == 0 ){
         		snprintf( svpass , sizeof( svpass ) , param);
-            log( "ÃÜÂë:%s\n",param );
+            log( "ï¿½ï¿½ï¿½ï¿½:%s\n",param );
         } else if( strcmp( command , "dbdir" ) == 0 ){
             snprintf( dbdir , sizeof( dbdir) , param );    
-            log( "Êý¾ÝÄ¿Â¼:%s\n",dbdir );        
+            log( "ï¿½ï¿½ï¿½ï¿½Ä¿Â¼:%s\n",dbdir );        
         } else if( strcmp( command, "rotate_interval" ) == 0 ){
             log_rotate_interval = atoi( param );
-            log( "ÈÕÖ¾Ñ­»·¼ä¸ô:%d\n",log_rotate_interval ); 
+            log( "ï¿½ï¿½Ö¾Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½:%d\n",log_rotate_interval ); 
         } else if( strcmp( command, "maildir" ) == 0 ){
             snprintf( maildir, sizeof( maildir ), param );
-            log( "ÓÊ¼þÄ¿Â¼:%s\n",maildir );
+            log( "ï¿½Ê¼ï¿½Ä¿Â¼:%s\n",maildir );
 #ifdef	_FAMILY
         // CoolFish: Family 2001/5/9
         } else if( strcmp( command, "familydir" ) == 0 ){
             snprintf( familydir, sizeof( familydir ), param );
-            log( "¼Ò×åÄ¿Â¼:%s\n",familydir );
+            log( "ï¿½ï¿½ï¿½ï¿½Ä¿Â¼:%s\n",familydir );
         } else if( strcmp( command, "fmpointdir" ) == 0 ){
             snprintf( fmpointdir, sizeof( fmpointdir ), param );
-            log( "×¯Ô°±íÁÐ:%s\n",fmpointdir );
+            log( "×¯Ô°ï¿½ï¿½ï¿½ï¿½:%s\n",fmpointdir );
         } else if( strcmp( command, "fmsmemodir" ) == 0 ){
             snprintf( fmsmemodir, sizeof( fmsmemodir ), param );
-            log( "¼Ò×å±¸·Ý:%s\n",fmsmemodir );
+            log( "ï¿½ï¿½ï¿½å±¸ï¿½ï¿½:%s\n",fmsmemodir );
 #endif
 			  } else if( strcmp( command , "Total_Charlist" ) == 0 ){
         	Total_Charlist = atoi( param );
-        	log( "¸üÐÂÈËÎïµãÊý¼ä¸ô:%dÃë\n",Total_Charlist );
+        	log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%dï¿½ï¿½\n",Total_Charlist );
         } else if( strcmp( command , "Expired_mail" ) == 0 ){
         	Expired_mail = atoi( param );
-        	log( "¸üÐÂ¹ýÆÚÓÊ¼þ¼ä¸ô:%dÃë\n",Expired_mail );
+        	log( "ï¿½ï¿½ï¿½Â¹ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½:%dï¿½ï¿½\n",Expired_mail );
         } else if( strcmp( command , "Del_Family_or_Member" ) == 0 ){
         	Del_Family_or_Member = atoi( param );
-        	log( "É¾³ý¼Ò×å³ÉÔ±¼ä¸ô:%dÃë\n",Del_Family_or_Member );
+        	log( "É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô±ï¿½ï¿½ï¿½:%dï¿½ï¿½\n",Del_Family_or_Member );
         } else if( strcmp( command , "Write_Family" ) == 0 ){
         	Write_Family = atoi( param );
-        	log( "¸üÐÂ¼Ò×åÐÅÏ¢¼ä¸ô:%dÃë\n",Write_Family );
+        	log( "ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½:%dï¿½ï¿½\n",Write_Family );
 				} else if( strcmp( command , "SameIpMun" ) == 0 ){
         	sameipmun = atoi( param );
         	if(sameipmun>0){
-        		log( "Í¬IPÔÊÐíÍ¬Ê±µÇÂ½:%d´Î\n",sameipmun );
+        		log( "Í¬IPï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Â½:%dï¿½ï¿½\n",sameipmun );
         	}else{
-        		log( "Í¬IPÔÊÐíÍ¬Ê±µÇÂ½:ÎÞÏÞÖÆ\n" );
+        		log( "Í¬IPï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½Â½:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n" );
         	}
 				}
     }
@@ -387,10 +387,10 @@ static void parseOpts( int argc, char **argv )
         switch( c ){
         case 'h':
             fprintf( stderr ,
-                     "Ê¹ÓÃ·½·¨: saac [-h] [-w port] [-w port] ... \n"
-                     "-h : ÏÔÊ¾saacµÄ°ïÖú\n"
-                     "-w port : Ìí¼ÓÒ»¸ö¹¤×÷Õ¾½ø³Ì¶Ë¿Ú\n"
-                     "Copyright 2006 Áúzoro¹¤×÷ÊÒ "
+                     "Ê¹ï¿½Ã·ï¿½ï¿½ï¿½: saac [-h] [-w port] [-w port] ... \n"
+                     "-h : ï¿½ï¿½Ê¾saacï¿½Ä°ï¿½ï¿½ï¿½\n"
+                     "-w port : ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ï¿½ï¿½Ì¶Ë¿ï¿½\n"
+                     "Copyright 2006 ï¿½ï¿½zoroï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ "
                      "( Longzoro System Supply )\n");
             exit(0);
             break;
@@ -414,7 +414,7 @@ static void parseOpts( int argc, char **argv )
         		nice(atoi( optarg ));
         		break;
         default:
-            log( "²»ÄÜ¶Á¶®Ñ¡Ïî %c\n" , c );
+            log( "ï¿½ï¿½ï¿½Ü¶ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ %c\n" , c );
             exit(0);
         }
     }
@@ -444,47 +444,47 @@ int main( int argc , char **argv )
 		UNlockM_Init();
     
     if(readConfig( "acserv.cf" )<0){
-        log( "ÎÞ·¨ÔÚµ±Ç°Ä¿Â¼Àï¶ÁÈ¡ acserv.cf .\n" );
+        log( "ï¿½Þ·ï¿½ï¿½Úµï¿½Ç°Ä¿Â¼ï¿½ï¿½ï¿½È¡ acserv.cf .\n" );
         exit(1);
     }
 
 #ifdef _SASQL
     sasql_init();
 #endif	
-    log( "¶ÁÈ¡Êý¾ÝÄ¿Â¼\n" );
+    log( "ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Ä¿Â¼\n" );
     dbRead( dbdir );
 #ifdef	_FAMILY
-    log("¶ÁÈ¡ ¼Ò×å×¯Ô°\n");
+    log("ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½×¯Ô°\n");
     readFMSMemo(fmsmemodir);
-    log("¶ÁÈ¡ ¼Ò×åÁôÑÔ\n");
+    log("ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n");
     readFMPoint(fmpointdir);
-    log("¶ÁÈ¡ ¼Ò×åÄ¿Â¼\n");
+    log("ï¿½ï¿½È¡ ï¿½ï¿½ï¿½ï¿½Ä¿Â¼\n");
     readFamily(familydir);
 #endif
-    log( "×¼±¸ µµ°¸Ä¿Â¼\n" );
+    log( "×¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¿Â¼\n" );
     prepareDirectories( chardir );
-    log( "×¼±¸ ÈÕÖ¾Ä¿Â¼\n" );
+    log( "×¼ï¿½ï¿½ ï¿½ï¿½Ö¾Ä¿Â¼\n" );
     prepareDirectories( logdir );
-    log( "×¼±¸ ÓÊ¼þÄ¿Â¼\n" );
+    log( "×¼ï¿½ï¿½ ï¿½Ê¼ï¿½Ä¿Â¼\n" );
     prepareDirectories( maildir );
 
 #ifdef _SLEEP_CHAR
     prepareDirectories( sleepchardir );
-    log( "×¼±¸ Ë¯Ãßµµ°¸Ä¿Â¼\n" );
+    log( "×¼ï¿½ï¿½ Ë¯ï¿½ßµï¿½ï¿½ï¿½Ä¿Â¼\n" );
 #endif
 
-    /* Ð×ÒýÔÈ»¯ÔÂ¶ª¡õ»ïÃ«  ÐÄ³ð¸ê */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½Â¶ï¿½ï¿½ï¿½ï¿½ï¿½Ã«  ï¿½Ä³ï¿½ï¿½ */
     if( readMail(maildir) < 0 ){
-        log( "²»ÄÜ³õÊ¼»¯ÓÊ¼þ\n" );
+        log( "ï¿½ï¿½ï¿½Ü³ï¿½Ê¼ï¿½ï¿½ï¿½Ê¼ï¿½\n" );
         exit(1);
 		}
 
-    /* TCPSTRUCT Ã«âÙÓå¼À */
+    /* TCPSTRUCT Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ */
     {
         int tcpr;
         if( ( tcpr = tcpstruct_init( NULL , port , 0 ,
 						CHARDATASIZE * 16 * MAXCONNECTION , 1 /* DEBUG */ ) ) < 0 ){
-            log( "²»ÄÜ¿ªÆôTCP: %d\n", tcpr );
+            log( "ï¿½ï¿½ï¿½Ü¿ï¿½ï¿½ï¿½TCP: %d\n", tcpr );
             return 1;
         }
     }
@@ -510,7 +510,7 @@ int main( int argc , char **argv )
 
     }
 
-#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°¶ÔÕ½ÁÐ±í´¢´æÔÚAC
+#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°ï¿½ï¿½Õ½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½AC
 	load_fm_pk_list();
 #endif
 
@@ -518,21 +518,17 @@ int main( int argc , char **argv )
 	FMPK_LoadList();
 #endif
 #ifdef _ALLDOMAN
-	LOAD_herolist();  // Syu ADD ÅÅÐÐ°ñNPC
-#endif
-
-#ifdef _ANGEL_SUMMON
-	initMissionTable();
+	LOAD_herolist();  // Syu ADD ï¿½ï¿½ï¿½Ð°ï¿½NPC
 #endif
 
 #ifdef _VIP
-		log( "\n·þÎñ¶Ë°æ±¾: <%s »áÔ±°æ>\n" , SERVER_VERSION );
+		log( "\nï¿½ï¿½ï¿½ï¿½Ë°æ±¾: <%s ï¿½ï¿½Ô±ï¿½ï¿½>\n" , SERVER_VERSION );
 #else
-		log( "\n·þÎñ¶Ë°æ±¾: <%s ÆÕÍ¨°æ>\n" , SERVER_VERSION );
+		log( "\nï¿½ï¿½ï¿½ï¿½Ë°æ±¾: <%s ï¿½ï¿½Í¨ï¿½ï¿½>\n" , SERVER_VERSION );
 #endif
-		log( "\n·þÎñ¶Ë±àÒëÍê³ÉÊ±¼ä:%s %s by Áúzoro¹¤×÷ÊÒ\n" , __DATE__ , __TIME__ );
+		log( "\nï¿½ï¿½ï¿½ï¿½Ë±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½:%s %s by ï¿½ï¿½zoroï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n" , __DATE__ , __TIME__ );
 		
-    log( "\n¿ªÊ¼¹¤×÷...\n" );
+    log( "\nï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½...\n" );
 
     signal(SIGUSR1,sigusr1);	// Arminius 7.20 memory lock
 	int itime=0;
@@ -570,7 +566,7 @@ int main( int argc , char **argv )
                     dbFlush(dbdir);
                     gettimeofday( &et,NULL);
                     log( "Flushed db(%fsec)\n", time_diff(et,st) );
-                    log( "µµ°¸±íÁÐ×ÜÊý:%d NG:%d\n",
+                    log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d NG:%d\n",
                          total_ok_charlist, total_ng_charlist );
                 }
             }
@@ -582,7 +578,7 @@ int main( int argc , char **argv )
                 gettimeofday( &st,NULL);
                 expireMail();
                 gettimeofday( &et,NULL);
-                log( "¹ýÆÚÓÊ¼þ(%fsec)\n", time_diff(et,st) );
+                log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½(%fsec)\n", time_diff(et,st) );
             }
 #ifdef	_FAMILY
             //if ((counter % 300) == 0) // 300( -> 60)
@@ -595,13 +591,13 @@ int main( int argc , char **argv )
          	writeFMPoint(fmpointdir);
          	writeFMSMemo(fmsmemodir);
          	gettimeofday(&et, NULL);
-         	log("¼ÇÂ¼¼Ò×å(%fsec)\n", time_diff(et, st));
+         	log("ï¿½ï¿½Â¼ï¿½ï¿½ï¿½ï¿½(%fsec)\n", time_diff(et, st));
       }
 #endif
         }
     newti = tcpstruct_accept1();
     if( newti >= 0 ){
-			log( "Í¬Òâ: %d\n" , newti );
+			log( "Í¬ï¿½ï¿½: %d\n" , newti );
 			gs[newti].use = 1;
     }
 
@@ -618,13 +614,13 @@ int main( int argc , char **argv )
                     if( saacproto_ServerDispatchMessage( i , buf, debugfun)<0){
                         // Nuke start
                         tcpstruct_close(i);// avoid the shutdown the gmsv ttom
-                        log( "GMSV(%s) ÏûÏ¢:%s\n", gs[i].name, debugfun);
+                        log( "GMSV(%s) ï¿½ï¿½Ï¢:%s\n", gs[i].name, debugfun);
                     }
                 } else if( l == TCPSTRUCT_ETOOLONG ){
-                    log( "ºÜ³¤:%d ·þÎñÆ÷Ãû::%s\n", i , gs[i].name );
+                    log( "ï¿½Ü³ï¿½:%d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½::%s\n", i , gs[i].name );
                     logout_game_server( i );
                 } else if( l < 0 ){
-                    log( "¹Ø±Õ:%d ·þÎñÆ÷Ãû:%s\n", i , gs[i].name );
+                    log( "ï¿½Ø±ï¿½:%d ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%s\n", i , gs[i].name );
                     logout_game_server(i);
                 } else if( l == 0 ){
                     ;
@@ -643,9 +639,9 @@ int main( int argc , char **argv )
             tv_loop_store = now;
         }
 
-        /* ·¥¡õÊÐ¡õ¼°ÕýÄÌØ©Ê§ËüÐþÃ«Æ©ÍÍÔÂ£Û
-           ÕýÄÌØ©Ê§ËüÐþØÆÐ×ÈÕ·òºëÃ«·ÖØÆ»¯·¥¡õÊÐ¡õÃ«Ú½ØÆ»¯ØÆÒýµ¤£Û
-           Æ¥±Ø¡õØ©ÈÓ¡õÌï¡õ±å  ±Î¶Á±å·´É§ôÅÔÊÔÂ           */
+        /* ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø©Ê§ï¿½ï¿½ï¿½ï¿½Ã«Æ©ï¿½ï¿½ï¿½Â£ï¿½
+           ï¿½ï¿½ï¿½ï¿½Ø©Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ·ï¿½ï¿½Ã«ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½Ã«Ú½ï¿½Æ»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+           Æ¥ï¿½Ø¡ï¿½Ø©ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½Î¶ï¿½ï¿½å·´É§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½           */
     }
     return 0;       
 }
@@ -660,11 +656,11 @@ time_diff(struct timeval subtrahend,
 
 
 /*
-  ·òºë¼°·ò¡õ  ¡õÐþÊÐËü¼þÐþÃ«  ÔÂ£Û
-  ÔÆØ¦ÔªÁÝÓå¼°ÊÖ¼°·´ÔÊÍÍ»¯¼°·òºë°×ÑëÄÌ»ï»¥ÔÆØ¦Ôª±åØ¦ÔÂ·½µ¤±åÔÊÔÂ£Û
+  ï¿½ï¿½ë¼°ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«  ï¿½Â£ï¿½
+  ï¿½ï¿½Ø¦Ôªï¿½ï¿½ï¿½å¼°ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï»¥ï¿½ï¿½Ø¦Ôªï¿½ï¿½Ø¦ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½
 
-  ³ð¼°¿á  ·´ÐÑÙ¯¼°è¦»¥ÔÆÔÆÈÊØ¦ÔÂ»¥£ý    Æ¥ÄÌ¼þÕý¡õÌï»ïÃ«  µÊØÆ»¯ÊÖ
-    åßá¨·Ö£Û
+  ï¿½ð¼°¿ï¿½  ï¿½ï¿½ï¿½ï¿½Ù¯ï¿½ï¿½è¦»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¦ï¿½Â»ï¿½ï¿½ï¿½    Æ¥ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«  ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½
+    ï¿½ï¿½á¨·Ö£ï¿½
   
  */
 int get_rotate_count(void )
@@ -836,7 +832,7 @@ int tcpstruct_accept( int *tis , int ticount )
             newcon = findregBlankCon( );
             if( newcon < 0 ) continue;
             newsockfd = accept( mainsockfd, (struct sockaddr*)&c , &len );
-        log( "Í¬Òâ: %d\n" , newsockfd );
+        log( "Í¬ï¿½ï¿½: %d\n" , newsockfd );
             if( newsockfd < 0 ){
                 unregMemBuf( newcon );
                 continue;
@@ -863,7 +859,7 @@ int tcpstruct_close( int ti )
     con[ti].use = 0;
     con[ti].fd = -1;
 
-    /* Øøµ©ÐþÃ«Ð×ÉýÔÈ»¯òå  Ã«ÛÍØøÊ§ÔÊÔÂ */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½  Ã«ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½ */
     consumeMemBufList( con[ti].mbtop_ri , NULL,
                    mbsize * sizeof( mb[0].buf ), 1, 0 );
     consumeMemBufList( con[ti].mbtop_wi , NULL,
@@ -876,7 +872,7 @@ int tcpstruct_close( int ti )
 }
 
 /*
-    ÐÄ³ð¸êÊÖ¼°»¥ÊÖµ¤Ø¦ÈÊ»¯£ýØÆ¾®ÊÖ remoteclose ·ÖÔÈÐ×ÈÕ -1 Ã«¾®ÒüÔÊ
+    ï¿½Ä³ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½Öµï¿½Ø¦ï¿½Ê»ï¿½ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½ remoteclose ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -1 Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   
  */
 int tcpstruct_read( int ti , char *buf , int len )
@@ -892,11 +888,11 @@ int tcpstruct_read( int ti , char *buf , int len )
 }
 
 /*
-  1µæÃ«·½ÐÄ³ð¸ê£Û
-  int kend : 1Ø¦ÈÕµæ  ¼° \n Ã«Ú½ÔÊ
-  int kend_r : 1Ø¦ÈÕµæ  ¼° \r ÊÖÚ½ÔÊ(Ø¤Ä¾ÈÉ)
+  1ï¿½ï¿½Ã«ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ï¿½
+  int kend : 1Ø¦ï¿½Õµï¿½  ï¿½ï¿½ \n Ã«Ú½ï¿½ï¿½
+  int kend_r : 1Ø¦ï¿½Õµï¿½  ï¿½ï¿½ \r ï¿½ï¿½Ú½ï¿½ï¿½(Ø¤Ä¾ï¿½ï¿½)
 
-    ÐÄ³ð¸êÊÖ¼°»¥ÊÖµ¤Ø¦ÈÊ»¯£ý¾®¹´ remote closed ·ÖÔÈÐ×ÈÕ-1Ã«¾®ÒüÔÊ
+    ï¿½Ä³ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½ï¿½Öµï¿½Ø¦ï¿½Ê»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ remote closed ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-1Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
   // Nuke
 	Read 1 line
 	if kend==1 then delete \n at the tail
@@ -976,7 +972,7 @@ int tcpstruct_connect( char *addr , int port )
     set_nodelay( s );
     newti = findregBlankCon( );
     if( newti < 0 ){
-        fprintf( stderr , "Á¬½ÓÊ§°Ü: newti:%d\n", newti );
+        fprintf( stderr , "ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½: newti:%d\n", newti );
         return TCPSTRUCT_ECFULL;
     }
     con[newti].fd = s;
@@ -1071,7 +1067,7 @@ static int consumeMemBufList( int top , char *out , int len ,
         if( consumeflag ){
             mb[top].len -= cpsize;
             if( mb[top].len > 0 ){
-                /* ¹´¾®ÖÐ·´Ð×ØÆ»¯Ø¦ÖÐ¼°Æ¥memmove */
+                /* ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½ï¿½ï¿½Æ»ï¿½Ø¦ï¿½Ð¼ï¿½Æ¥memmove */
                 memmove( mb[top].buf , mb[top].buf + cpsize ,
                          sizeof( mb[top].buf ) - cpsize );
             }
@@ -1083,7 +1079,7 @@ static int consumeMemBufList( int top , char *out , int len ,
     }
 
     if( consumeflag ){
-        /* Ø¦»¥½ñ»¥0±åØ¦ÔÈ»¯ÔÂØ¦ÈÕÝ©  £ÛÆ¥ÊÖ  âÙ¼°Ö§¹´·´Ý©  ØÆØ¦ÖÐÈß */
+        /* Ø¦ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½Ø¦ï¿½È»ï¿½ï¿½ï¿½Ø¦ï¿½ï¿½Ý©  ï¿½ï¿½Æ¥ï¿½ï¿½  ï¿½Ù¼ï¿½Ö§ï¿½ï¿½ï¿½ï¿½Ý©  ï¿½ï¿½Ø¦ï¿½ï¿½ï¿½ï¿½ */
         top = mb[top_store].next;
         for(;;){
             if( top == -1 )break;
@@ -1123,10 +1119,10 @@ static int getLineReadBuffer( int index , char *buf, int len )
         top = mb[top].next;
     }
     if( ti > len ){
-        /* 1µæ»¥Ø¦»¥ÔÊ¿ºÔÂ£Û    Ø¦¾Þ·Â¡õÃ«¾®ÒüÁù */
+        /* 1ï¿½æ»¥Ø¦ï¿½ï¿½ï¿½Ê¿ï¿½ï¿½Â£ï¿½    Ø¦ï¿½Þ·Â¡ï¿½Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
         return TCPSTRUCT_ETOOLONG;
     }
-    /* µæ»¥¶ØÔÀØÆ»¯Ø¦ÖÐ */
+    /* ï¿½æ»¥ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½Ø¦ï¿½ï¿½ */
     if( breakflag == 0 ){
         return 0;
     }
@@ -1137,16 +1133,16 @@ static int getLineReadBuffer( int index , char *buf, int len )
 
 
 /*
-    ÐÄ³ð»§ÔÂ    Ó®½ñÃ«ß¯ÔÊ
+    ï¿½Ä³ï¿½ï¿½ï¿½    Ó®ï¿½ï¿½Ã«ß¯ï¿½ï¿½
   int index : con index
 
   return:
-    ·´¾Þ·Â¡õ
-  0¶¯Ïþ¼°èëÄþ·´ read ØÆ»¯ÊÖ·½ÖÐÓ®½ñ£Û
+    ï¿½ï¿½ï¿½Þ·Â¡ï¿½
+  0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ read ï¿½Æ»ï¿½ï¿½Ö·ï¿½ï¿½ï¿½Ó®ï¿½ï¿½ï¿½
 
 
-  mbsize ¾®ÈÕmbuse Ã«Â¦ÖÐ»¯ÈÓÄÌÊõÃ«¾®ØêÔÂ·ÖØê£Û
-  ³ðÒý¾®ÖÐÜÌÔ»¼°ÛÐ·´  ÷»ÔÊÔÂ£Û¹«ÊÏØ¦³Æ¾®ÖÐ°À±å³ð·Ö´õÈÕØ¦ÈÊ»¯ÊÖµÚ£Û
+  mbsize ï¿½ï¿½ï¿½ï¿½mbuse Ã«Â¦ï¿½Ð»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½Ð·ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Â£Û¹ï¿½ï¿½ï¿½Ø¦ï¿½Æ¾ï¿½ï¿½Ð°ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½Ø¦ï¿½Ê»ï¿½ï¿½ÖµÚ£ï¿½
   
  */   
 static int getFreeMem( void )
@@ -1156,13 +1152,13 @@ static int getFreeMem( void )
 
 /*
   
-  membuf ¼°ÎëÎåÃ«¼ëØÆ·ÖÔÊ£Û
+  membuf ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½Æ·ï¿½ï¿½Ê£ï¿½
 
-  return : ÐÄ¹´¾®ÔÈÐ×ÈÕ >=0 Æ¥ index.
-  ÐÄ¹´¾®ÈÕØ¦¾®ÔÈÐ×ÈÕ  
+  return : ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ >=0 Æ¥ index.
+  ï¿½Ä¹ï¿½ï¿½ï¿½ï¿½ï¿½Ø¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  
 
-  ¸¹³ñ¼°ÎçÎå±å·´ mb_finder Ã«¹´¾®µ¤£Û
-  ³ðÄ¾Æ¥¸¹³ñØÆ»¯£ý    ±åregÔÊÔÂ£Û
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å·´ mb_finder Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+  ï¿½ï¿½Ä¾Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½Æ»ï¿½ï¿½ï¿½    ï¿½ï¿½regï¿½ï¿½ï¿½Â£ï¿½
  */
 
 static int findregBlankMemBuf( void  )
@@ -1184,7 +1180,7 @@ static int findregBlankMemBuf( void  )
 }
 
 /*
-  mb Ã«Ý©  ÔÊÔÂ
+  mb Ã«Ý©  ï¿½ï¿½ï¿½ï¿½
   
  */
 static int unregMemBuf(  int index )
@@ -1247,13 +1243,13 @@ void checkGSUCheck( char *id )
     if(!id[0])	return;
 	memset( gname, 0,  sizeof( gname) );
 	if( LockNode_getGname( (getHash(id) & 0xff), id, gname) <= 0 ){
-		log("ÎÞ·¨´ÓÓÎÏ·ÖÐÕÒµ½ÕËºÅ:%x/%s !!\n", getHash( id), id);
+		log("ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½Òµï¿½ï¿½Ëºï¿½:%x/%s !!\n", getHash( id), id);
 		return;
 	}
 	log("\n");
     for(i=0; i < MAXCONNECTION; i++ ){
         if( gs[i].name[0] && strcmp( gs[i].name , gname )==0){
-          log("·¢ËÍ½âËø¼ì²é[%s] µ½ %d.%x/%s ·þÎñÆ÷:%d !!\n", id, i, getHash( id), gname, gs[i].fd);
+          log("ï¿½ï¿½ï¿½Í½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½[%s] ï¿½ï¿½ %d.%x/%s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d !!\n", id, i, getHash( id), gname, gs[i].fd);
 					saacproto_ACUCheck_send( gs[i].fd , id );
 					return;
         }
@@ -1262,12 +1258,12 @@ void checkGSUCheck( char *id )
 
 	int ret = -1;
 		if( !isLocked( id) ) {
-			log( "É¾³ýÄÚ´æÐÅÏ¢: ÓÃ»§:%x/%s Ã»ÓÐËø¶¨!!\n", getHash(id), id);
+			log( "É¾ï¿½ï¿½ï¿½Ú´ï¿½ï¿½ï¿½Ï¢: ï¿½Ã»ï¿½:%x/%s Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!\n", getHash(id), id);
 		}
 		if( DeleteMemLock( getHash(id) & 0xff, id, &ret) ) {
 
 		} else {
-			log( "²»ÄÜ½âËø %x:%s !\n", getHash(id), id);
+			log( "ï¿½ï¿½ï¿½Ü½ï¿½ï¿½ï¿½ %x:%s !\n", getHash(id), id);
 		}
 }
 
@@ -1277,17 +1273,17 @@ void set_nodelay( int sock )
     int result = setsockopt( sock, IPPROTO_TCP, TCP_NODELAY,
                              (char*)&flag, sizeof(int));
     if( result < 0 ){
-        log( "²»ÄÜÉèÖÃÑÓ³Ù.\n" );
+        log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½.\n" );
     } else {
-        log( "ÉèÖÃÑÓ³Ù: fd:%d\n", sock );
+        log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½: fd:%d\n", sock );
     }
 }
 
 
 /*
-  ÔÊÍÍ»¯¼°±Ø¡õØ©ÈÓ¡õÌï¡õ±å  Ëª£Û
+  ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½Ø¡ï¿½Ø©ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  Ëªï¿½ï¿½
 
-  int flag : 1·ÖÔÈÐ×ÈÕËªññÝç±å·´ÔÆÈÊÈÕØ¦ÖÐ
+  int flag : 1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëªï¿½ï¿½ï¿½ï¿½å·´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¦ï¿½ï¿½
   
  */
 void gmsvBroadcast( int fd, char *p1, char *p2, char *p3 , int flag )
@@ -1332,10 +1328,10 @@ static int initMissionTable( void )
 	memset( missiontable, 0, sizeof(missiontable));
 	fp = fopen( MISSIONFILE, "r");
 	if( !fp ) {
-		log("\n¼ÓÔØ¾«ÁéÕÙ»½´íÎó!!!! \n");
+		log("\nï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½!!!! \n");
 		//return false;
 	}
-	log("\n¼ÓÔØ¾«ÁéÕÙ»½...");
+	log("\nï¿½ï¿½ï¿½Ø¾ï¿½ï¿½ï¿½ï¿½Ù»ï¿½...");
 	while(1) {
 		//
 		if( fgets( onedata, sizeof(onedata), fp) == NULL)
@@ -1375,7 +1371,7 @@ static int initMissionTable( void )
 		if( index >= MAXMISSIONTABLE) break;
 	}
 	fclose( fp);
-	log("..³É¹¦! \n");
+	log("..ï¿½É¹ï¿½! \n");
 	//return true;
 }
 
@@ -1389,10 +1385,10 @@ int saveMissionTable( void )
 
 	fp = fopen( MISSIONFILE, "w");
 	if( !fp ) {
-		log("\n´ò¿ª¾«ÁéÕÙ»½´íÎó!!!! \n");
+		log("\nï¿½ò¿ª¾ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½!!!! \n");
 		//return false;
 	}
-	log("\n±£´æ¾«ÁéÕÙ»½...");
+	log("\nï¿½ï¿½ï¿½æ¾«ï¿½ï¿½ï¿½Ù»ï¿½...");
 	for( index =0; index < MAXMISSIONTABLE; index++) {
 
 		if( missiontable[index].angelinfo[0] == '\0' )
@@ -1407,7 +1403,7 @@ int saveMissionTable( void )
 		fputs( onedata, fp);
 	}
 	fclose( fp);
-	log("..³É¹¦! \n");
+	log("..ï¿½É¹ï¿½! \n");
 	//return true;
 }
 
@@ -1415,7 +1411,7 @@ void delMissionTableOnedata( int index)
 {
 	int gi;
 
-	log("\nÉ¾³ý¾«ÁéÕÙ»½:%d:%s:%s \n", index, missiontable[index].angelinfo, missiontable[index].heroinfo);
+	log("\nÉ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½:%d:%s:%s \n", index, missiontable[index].angelinfo, missiontable[index].heroinfo);
 
 	if( index <0 || index >=MAXMISSIONTABLE) return;
 	strcpy( missiontable[index].angelinfo, "");
@@ -1432,9 +1428,9 @@ void delMissionTableOnedata( int index)
 	}
 }
 
-#define ANSWERTIME 1 // µÈ´ý»Ø´ðÊ±¼ä(Ð¡Ê±)
-//#define DOINGTIME 3*24 // ÈÎÎñÊ±¼ä(Ð¡Ê±)
-#define BOUNDSTIME 1*24 // ±£ÁôÊ±¼ä(Ð¡Ê±)
+#define ANSWERTIME 1 // ï¿½È´ï¿½ï¿½Ø´ï¿½Ê±ï¿½ï¿½(Ð¡Ê±)
+//#define DOINGTIME 3*24 // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½(Ð¡Ê±)
+#define BOUNDSTIME 1*24 // ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½(Ð¡Ê±)
 
 void checkMissionTimelimit( void)
 {
@@ -1444,25 +1440,25 @@ void checkMissionTimelimit( void)
 	if( sys_time < lastcheck + 5*60 )
 		return;
 
-	log("\n¼ì²é¾«ÁéÕÙ»½Ê±¼äÏÞÖÆ:%d \n", sys_time);
+	log("\nï¿½ï¿½é¾«ï¿½ï¿½ï¿½Ù»ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:%d \n", sys_time);
 	for( index =0; index < MAXMISSIONTABLE; index++) {
 		if( missiontable[index].flag == MISSION_NONE) {
 			continue;
 		}
-		// µÈ´ýÊ¹Õß»ØÓ¦1Ð¡Ê±
+		// ï¿½È´ï¿½Ê¹ï¿½ß»ï¿½Ó¦1Ð¡Ê±
 		else if( missiontable[index].flag == MISSION_WAIT_ANSWER
 				&& sys_time > missiontable[index].time + ANSWERTIME*60*60 ) {
 			
 			delMissionTableOnedata( index);// É¾
 		}
-		// µÈ´ýÁì½±Íê³É limittimeÐ¡Ê±
+		// ï¿½È´ï¿½ï¿½ì½±ï¿½ï¿½ï¿½ limittimeÐ¡Ê±
 		else if( ( missiontable[index].flag == MISSION_DOING || missiontable[index].flag == MISSION_HERO_COMPLETE )
 				&& ( sys_time > (missiontable[index].time + missiontable[index].limittime*60*60))		 ) {
 
 			char buf[1024];
 			int gi;
-			// ¸ÄTIMEOVER
-			log("¾«ÁéÕÙ»½¼°Áì½±Ê±¼ä¹ý:%d ", index);
+			// ï¿½ï¿½TIMEOVER
+			log("ï¿½ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ì½±Ê±ï¿½ï¿½ï¿½:%d ", index);
 			missiontable[index].flag = MISSION_TIMEOVER;
 			missiontable[index].time = time(NULL);
 			missiontable[index].limittime = BOUNDSTIME;
@@ -1484,14 +1480,14 @@ void checkMissionTimelimit( void)
 		}
 		//else if( missiontable[index].flag == MISSION_HERO_COMPLETE
 		//		&& sys_time > missiontable[index].time + BOUNDSTIME*60*60 ) {
-		//	log(" Áì½±Ê±¼ä¹ý:%d ", index);
+		//	log(" ï¿½ì½±Ê±ï¿½ï¿½ï¿½:%d ", index);
 		//	delMissionTableOnedata( index);// É¾
 		//}
 
-		// ×ÊÁÏ±£ÁôÊ±¼ä(BOUNDSTIMEÐ¡Ê±)
+		// ï¿½ï¿½ï¿½Ï±ï¿½ï¿½ï¿½Ê±ï¿½ï¿½(BOUNDSTIMEÐ¡Ê±)
 		else if( missiontable[index].flag == MISSION_TIMEOVER
 				&& sys_time > missiontable[index].time + BOUNDSTIME*60*60 ) {
-			log(" ±£ÁôÊ±¼ä¹ý:%d ", index);
+			log(" ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½:%d ", index);
 			delMissionTableOnedata( index);// É¾
 		}
 

@@ -47,8 +47,8 @@ void saacproto_ACServerLogin_recv( int ti,char* servername , char* serverpas )
 }
 #endif
 /*
-   ±Ø¡õØ©ÈÓ¡õÌï¡õ»¥Ê§ÊÐËü¼þÐþÈÓ¡õÌï¡õ¾®ÈÕ·òºëÊ§ËüÐþÔÊÔÂ£Û
-   int fd : ¸²ÀÞsocket
+   ï¿½Ø¡ï¿½Ø©ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ·ï¿½ï¿½Ê§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â£ï¿½
+   int fd : ï¿½ï¿½ï¿½ï¿½socket
 
 */
 void  saacproto_ACServerLogout_recv( int ti  )
@@ -82,19 +82,19 @@ void saacproto_ACCharLoad_recv( int ti,char* id,char* pas,char* charname ,
 
 		charLoadCallback(ti,0,id,pas,charname,buf,"",lock,mesgid);
     // Spock 2000/10/31
-    //log( "¶ÁÈ¡µµ°¸: ¸½¼Ó×÷Òµ %s %s, ½ø³Ì=%d\n", id,pas,process );
+    //log( "ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ %s %s, ï¿½ï¿½ï¿½ï¿½=%d\n", id,pas,process );
     // Spock end
 }
 
 /*
-   Æ½ÅÒ·ÂâçÐå
+   Æ½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 
    char *id : ID
-   char *pas : ÌìÔÊ´õ¡õÉý
-   char *charname : Æ½ÅÒ·Â  
-   char *opt : ×óÃóÆËÒà¼þ  Ù¯  £Û CharList¼°ÎçÎå±å¶ªÆ¹ÎçØÆ»¯ß¯ÔÊÊ÷  
-   char *charinfo : °×ÑëÄÌ»ï±åâçÐåÔÊÔÂÆ½ÅÒ·ÂÛÍÕý¼°µ©  ¡õÕýµ©Ê÷  £Û
-   int id : ¶ªÓÀ±¾¡õ³âid
+   char *pas : ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½
+   char *charname : Æ½ï¿½Ò·ï¿½  
+   char *opt : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  Ù¯  ï¿½ï¿½ CharListï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å¶ªÆ¹ï¿½ï¿½ï¿½Æ»ï¿½ß¯ï¿½ï¿½ï¿½ï¿½  
+   char *charinfo : ï¿½ï¿½ï¿½ï¿½ï¿½Ì»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½
+   int id : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½id
 */
 #ifdef _NewSave
 void saacproto_ACCharSave_recv( int ti, char* id,
@@ -124,7 +124,7 @@ void saacproto_ACCharSave_recv( int ti, char* id,
     if( unlock) {
 			dummyCallback(ti,0,id,"dummy",charname,process,"",mesgid,0);
     }
-    log("Íæ¼ÒÒÑ±£´æ±£´æ\n");
+    log("ï¿½ï¿½ï¿½ï¿½Ñ±ï¿½ï¿½æ±£ï¿½ï¿½\n");
 }
 
 void saacproto_ACCharList_recv( int ti,char* id,char* pas , int mesgid)
@@ -143,7 +143,7 @@ void saacproto_ACCharList_recv( int ti,char* id,char* pas , int mesgid)
         return;
     }
 		charListCallback(ti,0,id,pas,"",buf,"0",mesgid,0);
-    log( "µµ°¸ÁÐ±í: %s\n", id );
+    log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ð±ï¿½: %s\n", id );
 }
 
 void saacproto_ACCharDelete_recv( int ti,char* id,char* pas,
@@ -156,7 +156,7 @@ void saacproto_ACCharDelete_recv( int ti,char* id,char* pas,
     }
     // Nuke
     charDeleteCallback(ti,0,id,pas,charname,"0","",mesgid,0);
-    log( "µµ°¸É¾³ý: ¸½¼Ó×÷Òµ %s %s\n",id , pas );
+    log( "ï¿½ï¿½ï¿½ï¿½É¾ï¿½ï¿½: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òµ %s %s\n",id , pas );
 }
 
 void saacproto_ACLock_recv( int ti ,char* id,int lock,int mesgid )
@@ -194,9 +194,9 @@ void saacproto_ACLock_recv( int ti ,char* id,int lock,int mesgid )
 		if ( lockUser( getGSName( ti ) , id , "0" , lock , result,sizeof(result),
 										retdata ,sizeof( retdata ) , "0" , "0") < 0 ) {
 #endif
-			log( "Ëø¶¨ÓÃ»§: %s Ê§°Ü\n" , id );
+			log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½: %s Ê§ï¿½ï¿½\n" , id );
 		} else {
-			log( "Ëø¶¨ÓÃ»§: %s ³É¹¦\n" , id );
+			log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½: %s ï¿½É¹ï¿½\n" , id );
 		}
   }
     // Spock end
@@ -206,16 +206,16 @@ void saacproto_ACLock_recv( int ti ,char* id,int lock,int mesgid )
 void saacproto_ACUCheck_recv( int ti , char *id , int status )
 {
     if( !is_game_server_login(ti) ){
-        log( "·þÎñÆ÷·¢ÏÖÕËºÅ:%s status:%d\n",
+        log( "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½:%s status:%d\n",
              id, status );
         return;
     }
 
 	if( status == 0 ){
-       log( "ÓÃ»§ %s ÔÚ %s ²¢Î´Ëø¶¨£¡\n", id , getGSName( ti ) );
+       log( "ï¿½Ã»ï¿½ %s ï¿½ï¿½ %s ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n", id , getGSName( ti ) );
        saacproto_ACKick_recv( ti, id, 6, -1);
     } else {
-        log( "ÓÃ»§ %s ÔÚ %s ÒÑËø¶¨£¡\n", id , getGSName( ti ) );
+        log( "ï¿½Ã»ï¿½ %s ï¿½ï¿½ %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½\n", id , getGSName( ti ) );
 #ifdef _WAEI_KICK
 				saacproto_ACKick_recv( ti, id, 1, -1);
 #endif
@@ -309,7 +309,7 @@ void saacproto_DBUpdateEntryInt_recv( int fd,
     }
 }
 
-#ifdef _ALLDOMAN					// (²»¿É¿ª) Syu ADD ÅÅÐÐ°ñNPC
+#ifdef _ALLDOMAN					// (ï¿½ï¿½ï¿½É¿ï¿½) Syu ADD ï¿½ï¿½ï¿½Ð°ï¿½NPC
 void saacproto_UpdataStele_recv( int fd , char *cdkey , char *name , char *title ,
 								int level , int trns , int time , int floor )
 {
@@ -547,7 +547,7 @@ void saacproto_ACAddFM_recv( int fd, char *fmname, char *fmleadername,
 }
 
 void saacproto_ACJoinFM_recv(int fd, char *fmname, int fmindex,
-#ifdef _PERSONAL_FAME	// Arminius: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME	// Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	char *charname, char *charid, int charlv, int index, int fame, int charfdid)
 #else
 	char *charname, char *charid, int charlv, int index, int charfdid)
@@ -555,7 +555,7 @@ void saacproto_ACJoinFM_recv(int fd, char *fmname, int fmindex,
 {
 #ifdef _FAMILY
 	int r = 0;
-#ifdef _PERSONAL_FAME	// Arminius: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME	// Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	r =  ACJoinFM(fd, index, fmname, fmindex, charname, charid, charlv, fame, charfdid);
 #else
 	r =  ACJoinFM(fd, index, fmname, fmindex, charname, charid, charlv, charfdid);
@@ -715,7 +715,7 @@ void saacproto_ACMemberLeaveFM_recv(int fd, char *fmname, int fmindex,
 {
 #ifdef _FAMILY
 	int r = 0;
-	int flag = 1; // Ö÷¶¯Àë¿ª¼Ò×å
+	int flag = 1; // ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½ï¿½ï¿½ï¿½
 #ifdef _FMVER21
 	r =  ACMemberLeaveFM(index, fmname, fmindex, charname, flag,
 		charindex, meindex);
@@ -746,7 +746,7 @@ void saacproto_ACFMCharLogin_recv(int fd, char *fmname, int fmindex,
 #ifdef _FAMILY
 	int r = 0, floor = 0, fmpopular = 0, joinflag = 0, fmsetupflag = 0;
 	int flag = 0, charindex = 0;
-#ifdef _PERSONAL_FAME   // Arminius: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME   // Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int charfame = 0;
 #endif
 #ifdef _NEW_MANOR_LAW
@@ -761,7 +761,7 @@ void saacproto_ACFMCharLogin_recv(int fd, char *fmname, int fmindex,
 	#endif
 			);
 #else
-	#ifdef _PERSONAL_FAME   // Arminius: ¼Ò×å¸öÈËÉùÍû
+	#ifdef _PERSONAL_FAME   // Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		r =  ACFMCharLogin(fd, -1, fmname, fmindex, charname, charid, charlv,
 			&floor, &fmpopular, &joinflag, &fmsetupflag, &charindex, charfdid,
 			&charfame, eventflag);
@@ -771,7 +771,7 @@ void saacproto_ACFMCharLogin_recv(int fd, char *fmname, int fmindex,
 	#endif
 #endif
 
-#ifdef _PERSONAL_FAME   // Arminius: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME   // Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (r < 0){
 		saacproto_ACFMCharLogin_send(fd, FAILED, r, floor, fmpopular,
 			joinflag, fmsetupflag, flag, charindex, charfame, charfdid
@@ -1027,7 +1027,7 @@ extern gmsv gs[MAXCONNECTION];
 	}
 }
 
-#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°¶ÔÕ½ÁÐ±í´¢´æÔÚAC
+#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°ï¿½ï¿½Õ½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½AC
 #ifdef _ACFMPK_LIST
 void saacproto_ACLoadFmPk_recv(int fd, int fmpks_pos)
 {
@@ -1054,7 +1054,7 @@ void saacproto_ACSendFmPk_recv(int fd, int fmpks_pos, int userindex, int flg, ch
 			saacproto_ACLoadFmPk_send(i, FMPK_GetData( fmpks_pos-1) );
 		}
 	}
-	//ËÍÈ·ÈÏÑ¶Ï¢
+	//ï¿½ï¿½È·ï¿½ï¿½Ñ¶Ï¢
 	if(userindex != -1) saacproto_ACSendFmPk_send( fd, userindex, 1);
 }
 #else
@@ -1091,8 +1091,8 @@ void saacproto_ACManorPKAck_recv(int fd, char *data)
 {
 #ifdef _FAMILY
 
-#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°¶ÔÕ½ÁÐ±í´¢´æÔÚAC
-	// ²»´¦Àí
+#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°ï¿½ï¿½Õ½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½AC
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #else
 	extern gmsv gs[MAXCONNECTION];
 	int i;
@@ -1123,7 +1123,7 @@ void saacproto_ACKick_recv( int ti ,char* id, int lock,int mesgid )
 	switch( lock)	{
 	case 0://LSLOCK
 		break;
-	case 1:		//¿çÐÇÇòÌßÈË KICK
+	case 1:		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ KICK
 		{
 			int i;
 			for(i=0;i<MAXCONNECTION;i++)	{
@@ -1154,7 +1154,7 @@ void saacproto_ACKick_recv( int ti ,char* id, int lock,int mesgid )
 				sprintf(retdata, "LOCK USER !!");
 		  }
 		break;
-	case 5:	//²éÑ¯Íæ¼Ò×´Ì¬ TYPE
+	case 5:	//ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½×´Ì¬ TYPE
 		{
 			char buf[4096];
 			if (GetMemLockState(getHash(id) & 0xff, id, buf)) {
@@ -1177,9 +1177,9 @@ void saacproto_ACKick_recv( int ti ,char* id, int lock,int mesgid )
 #endif
 
 			if( strcmp( result , SUCCESSFUL ) == 0 ){
-				log( "½âËøÕËºÅ %s ³É¹¦£¡\n" , id );
+				log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ %s ï¿½É¹ï¿½ï¿½ï¿½\n" , id );
 			} else {
-				log( "½âËøÕËºÅ %s Ê§°Ü£¡\n" , id );
+				log( "ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½ %s Ê§ï¿½Ü£ï¿½\n" , id );
 				return;
 			}
 
@@ -1187,7 +1187,7 @@ void saacproto_ACKick_recv( int ti ,char* id, int lock,int mesgid )
 			dummyCallback(ti,0,id,"dummy",charname,process,"",mesgid,0);
 		}
 		break;
-		case 10:	//¿çÐÇÇòÌßÈË²»º¬load¸ÃÐÇÇò
+		case 10:	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë²ï¿½ï¿½ï¿½loadï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			int i;
 			for(i=0;i<MAXCONNECTION;i++)	{
@@ -1202,7 +1202,7 @@ void saacproto_ACKick_recv( int ti ,char* id, int lock,int mesgid )
 
 #endif
 
-#ifdef _SEND_EFFECT		   // WON ADD ËÍÏÂÑ©¡¢ÏÂÓêµÈÌØÐ§
+#ifdef _SEND_EFFECT		   // WON ADD ï¿½ï¿½ï¿½ï¿½Ñ©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§
 void SendEffect(char *effect)
 {
     extern gmsv gs[MAXCONNECTION];
@@ -1216,7 +1216,7 @@ void SendEffect(char *effect)
 }
 #endif
 
-#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°¶ÔÕ½ÁÐ±í´¢´æÔÚAC
+#ifdef _AC_SEND_FM_PK		 // WON ADD ×¯Ô°ï¿½ï¿½Õ½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½AC
 void load_fm_pk_list()
 {
 	int i;
@@ -1289,7 +1289,7 @@ void saacproto_ACCharGetPoolItem_recv( int fd, char *cdkey, int userindex, int c
 
 	ret = loadCharPoolItemOne( cdkey , loadbuf , sizeof(loadbuf));
 
-	if( ret == -1 ){//ÕÒ²»µ½µµ°¸
+	if( ret == -1 ){//ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		saacproto_ACCharGetPoolItem_send( fd , FAILED, loadbuf, clifdid, npcid);
 		return;
 	}
@@ -1330,7 +1330,7 @@ void saacproto_ACCharGetPoolPet_recv( int fd, char *cdkey, int userindex, int cl
 
 	ret = loadCharPoolPetOne( cdkey , loadbuf , sizeof(loadbuf));
 
-	if( ret == -1 ){//ÕÒ²»µ½µµ°¸
+	if( ret == -1 ){//ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		saacproto_ACCharGetPoolPet_send( fd , FAILED, loadbuf, clifdid, npcid);
 		return;
 	}
@@ -1338,7 +1338,7 @@ void saacproto_ACCharGetPoolPet_recv( int fd, char *cdkey, int userindex, int cl
 }
 #endif
 
-#ifdef _ALLDOMAN // Syu ADD ÅÅÐÐ°ñNPC
+#ifdef _ALLDOMAN // Syu ADD ï¿½ï¿½ï¿½Ð°ï¿½NPC
 void LOAD_herolist()
 {
 	FILE *fdb;
@@ -1513,14 +1513,14 @@ int UNlockM_UnlockPlayer( void)
 		if( !UNlockM[i].use ) continue;
 		if( UNlockM[i].time >= time(NULL) ) continue;
 		if( isLocked( UNlockM[i].PlayerId ) ){
-			log( "µÈ´ý½âËøÍæ¼Ò: %s »¹ÐèËø¶¨!!\n", UNlockM[i].PlayerId);
+			log( "ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!!\n", UNlockM[i].PlayerId);
 		}else{
-			log( "µÈ´ý½âËøÍæ¼Ò: %s ÒÑ¾­½âËø!!\n", UNlockM[i].PlayerId);
+			log( "ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: %s ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½!!\n", UNlockM[i].PlayerId);
 		}
 		reset_UNlockMPlayer( i);
 		nums++;
 	}
-	//log( "µÈ´ý½âËøÍæ¼Ò: ×Ü¼Æ %d ¸öÓÃ»§½âËø !!\n", nums);
+	//log( "ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½: ï¿½Ü¼ï¿½ %d ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ !!\n", nums);
 	return nums;
 }
 
@@ -1573,7 +1573,7 @@ void saacproto_ACMissionTable_recv( int fd, int num, int type, char *data, char*
 	else if( type == 2 ) { // add data
 		int empty =-1;
 
-		log("\nÔö¼Ó¾«ÁéÕÙ»½ÈÎÎñ:%s \n", data);
+		log("\nï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½:%s \n", data);
 		for( i =0; i <MAXMISSIONTABLE; i++) {
 			if( missiontable[i].angelinfo[0] == '\0' ) {
 				empty = i;
@@ -1620,9 +1620,6 @@ void saacproto_ACMissionTable_recv( int fd, int num, int type, char *data, char*
 		return;
 	}
 	else if( type == 3 ) { // del data
-
-		delMissionTableOnedata( num);
-
 		saveMissionTable();
 
 		return;
@@ -1632,7 +1629,7 @@ void saacproto_ACMissionTable_recv( int fd, int num, int type, char *data, char*
 		char angelinfo[64];
 		int limittime;
 
-		log("\nÔö¼Ó¾«ÁéÕÙ»½ÈÎÎñ:%s:%d \n", data, num);
+		log("\nï¿½ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½ï¿½Ù»ï¿½ï¿½ï¿½ï¿½ï¿½:%s:%d \n", data, num);
 
 		if( num == MISSION_DOING ) {
 			easyGetTokenFromBuf( data, "|", 1, buf, sizeof( buf));
@@ -1683,7 +1680,7 @@ void saacproto_ACMissionTable_recv( int fd, int num, int type, char *data, char*
 void saacproto_ACCheckCharacterOnLine_recv( int fd, int charaindex, char *id, char *name, int flag)
 {
 	LockNode *ln = userlock[getHash(id) & 0xff];
-	// ÐëÒªÈ·ÈÏÃû×Ö
+	// ï¿½ï¿½ÒªÈ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(name != NULL){
 		while(ln != NULL){
 			if(ln->use != 0){
@@ -1694,10 +1691,10 @@ void saacproto_ACCheckCharacterOnLine_recv( int fd, int charaindex, char *id, ch
 			}
 			ln = ln->next;
 		}
-		// Íæ¼Ò²»ÔÚÏßÉÏ
+		// ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		saacproto_ACCheckCharacterOnLine_send(fd,charaindex,0,"",flag);
 	}
-	// ²»ÐëÒªÈ·ÈÏÃû×Ö
+	// ï¿½ï¿½ï¿½ï¿½ÒªÈ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	else{
 		while(ln != NULL){
 			if(ln->use != 0){
@@ -1708,7 +1705,7 @@ void saacproto_ACCheckCharacterOnLine_recv( int fd, int charaindex, char *id, ch
 			}
 			ln = ln->next;
 		}
-		// Íæ¼Ò²»ÔÚÏßÉÏ
+		// ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		saacproto_ACCheckCharacterOnLine_send(fd,charaindex,0,"",flag);
 	}
 }
@@ -1719,17 +1716,17 @@ void saacproto_ACCharLogin_recv( int fd, int clifd, char* id, char* pas, char* i
 	int res;
 #ifdef _SASQL
 	if (strlen(id)==0 || strlen(pas)==0 || strlen(ip)==0){
-	  printf("µÇÂ½ÐÅÏ¢ÓÐ´íÎó£¡\n");
+	  printf("ï¿½ï¿½Â½ï¿½ï¿½Ï¢ï¿½Ð´ï¿½ï¿½ï¿½\n");
 	  saacproto_ACCharLogin_send( fd, clifd, 0);
 	  return;
 	}
 	if (sasql_chehk_lock(id)){
-		printf("¸ÃÕËºÅ%s½ûÖ¹µÇÂ½!\n",id);
+		printf("ï¿½ï¿½ï¿½Ëºï¿½%sï¿½ï¿½Ö¹ï¿½ï¿½Â½!\n",id);
 	  saacproto_ACCharLogin_send( fd, clifd, 0);
 	  return;
 	}
 	if (sasql_chehk_lock(ip)){
-		printf("¸ÃIP%s½ûÖ¹µÇÂ½!\n",ip);
+		printf("ï¿½ï¿½IP%sï¿½ï¿½Ö¹ï¿½ï¿½Â½!\n",ip);
 	  saacproto_ACCharLogin_send( fd, clifd, 0);
 	  return;
 	}
@@ -1757,20 +1754,20 @@ void saacproto_LockLogin_recv( int fd, char* id, char* ip, int flag )
 		case 0:
 			if(strlen(id)>0)
 				if(sasql_del_lock(id))
-					log("³É¹¦½â³ýËø¶¨ÕËºÅ:%s\n",id);
+					log("ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½:%s\n",id);
 			if(strlen(ip)>0)
 				if(sasql_del_lock(ip))
-					log("³É¹¦½â³ýËø¶¨IP:%s\n",ip);
+					log("ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IP:%s\n",ip);
 			break;
 		case 1:
 			if(strlen(id)>0)
 				if(!sasql_chehk_lock(id))
 					if(sasql_add_lock(id))
-						log("³É¹¦Ëø¶¨ÕËºÅ:%s\n",id);
+						log("ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëºï¿½:%s\n",id);
 			if(strlen(ip)>0)
 				if(!sasql_chehk_lock(ip))
 					if(sasql_add_lock(ip))
-						log("³É¹¦Ëø¶¨IP:%s\n",ip);
+						log("ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½IP:%s\n",ip);
 			break;
 		default:
 			break;
