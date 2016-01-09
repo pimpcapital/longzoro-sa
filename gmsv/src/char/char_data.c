@@ -17,15 +17,13 @@
 #include "log.h"
 #include "pet.h"
 #include "enemy.h"
-#ifdef _PERSONAL_FAME	// Arminius: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME	// Arminius: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #include "char_base.h"
 #include "configfile.h"
 #endif
 
 
 #include "defaultPlayer.h"
-
-#include "ls2data.dat"
 
 // CoolFish: Family 2001/7/28
 #include "family.h"
@@ -47,73 +45,73 @@ typedef struct tagdefaultCharcterGet
 static defaultCharacterGet CHAR_defaultCharacterGet[]=
 {
   /*  CHAR_DEFAULTPLAYER  */
-//ºÒ¼äñÉ¨à
+//ï¿½Ò¼ï¿½ï¿½É¨ï¿½
     {SPR_001em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDBOY},
     {SPR_002em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDBOY},
     {SPR_003em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDBOY},
     {SPR_004em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDBOY},
 
-//¼Á  ¨à
+//ï¿½ï¿½  ï¿½ï¿½
     {SPR_011em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_012em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_013em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_014em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
 
-//¼Á  ¨á
+//ï¿½ï¿½  ï¿½ï¿½
     {SPR_021em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_022em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_023em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_024em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
 
-//¼Á  ¨â
+//ï¿½ï¿½  ï¿½ï¿½
     {SPR_031em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_032em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_033em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
     {SPR_034em,&player,&lvplayer00,CHAR_IMAGETYPE_BOY},
 
-//Á²  ¨à
+//ï¿½ï¿½  ï¿½ï¿½
     {SPR_041em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_042em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_043em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_044em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
 
-//Á²  ¨á
+//ï¿½ï¿½  ï¿½ï¿½
     {SPR_051em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_052em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_053em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
     {SPR_054em,&player,&lvplayer00,CHAR_IMAGETYPE_MAN},
 
-//ºÒ¼ä»Ô¨à
+//ï¿½Ò¼ï¿½Ô¨ï¿½
     {SPR_061em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDGIRL},
     {SPR_062em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDGIRL},
     {SPR_063em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDGIRL},
     {SPR_064em,&player,&lvplayer00,CHAR_IMAGETYPE_CHILDGIRL},
 
-//¼Á»Ô¨à
+//ï¿½ï¿½ï¿½Ô¨ï¿½
     {SPR_071em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_072em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_073em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_074em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
 
-//¼Á»Ô¨á
+//ï¿½ï¿½ï¿½Ô¨ï¿½
     {SPR_081em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_082em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_083em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_084em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
 
-//¼Á»Ô¨â
+//ï¿½ï¿½ï¿½Ô¨ï¿½
     {SPR_091em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_092em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_093em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
     {SPR_094em,&player,&lvplayer00,CHAR_IMAGETYPE_GIRL},
 
-//»ÔÁë¨à
+//ï¿½ï¿½ï¿½ï¿½ï¿½
     {SPR_101em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
     {SPR_102em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
     {SPR_103em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
     {SPR_104em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
 
-//»ÔÁë¨á
+//ï¿½ï¿½ï¿½ï¿½ï¿½
     {SPR_111em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
     {SPR_112em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
     {SPR_113em,&player,&lvplayer00,CHAR_IMAGETYPE_WOMAN},
@@ -207,11 +205,11 @@ BOOL CHAR_checkPlayerImageNumber( int imagenumber)
 	else return TRUE;
 }
 /*------------------------------------------------------------
- * Ó¿  ì«  Ä¯¼°ÃñÄáÓÀÛÍ
+ * Ó¿  ï¿½  Ä¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  *
- * Ó¿  ì«  Ä¯·´¶¯Æ±¼°°×ÇÉ¡õÑ¨ÓÀÐþÆ¥è£ÒýÔÈ»¯ÖÐÔÂ
- * number = ÖÏÚÐ  ¾®
- * CG_CHR_MAKE_FACE + (number*100) + (  çÆ  number * 25) + (     Ä¯ * 5 ) + éø  Ä¯
+ * Ó¿  ï¿½  Ä¯ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½ï¿½É¡ï¿½Ñ¨ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½
+ * number = ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½
+ * CG_CHR_MAKE_FACE + (number*100) + (  ï¿½ï¿½  number * 25) + (     Ä¯ * 5 ) + ï¿½ï¿½  Ä¯
  *
  ------------------------------------------------------------*/
 BOOL CHAR_checkFaceImageNumber( int imagenumber, int faceimagenumber)
@@ -224,9 +222,9 @@ BOOL CHAR_checkFaceImageNumber( int imagenumber, int faceimagenumber)
 	if( image != number + color ) return FALSE;
 	return TRUE;
 }
-// Æ½ÅÒ·Â  ì«  ¡õÆ¤»ï£Û¨à  Ø¤Ð×Ô»Á¥  ¨äÅË  
+// Æ½ï¿½Ò·ï¿½  ï¿½  ï¿½ï¿½Æ¤ï¿½ï¿½Û¨ï¿½  Ø¤ï¿½ï¿½Ô»ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½  
 int CHAR_eqimagetbl[][5]={
-    // ÔÊÆ¥       £û£û£û£û é÷áß       ¼ü         ÝÔ
+    // ï¿½ï¿½Æ¥       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½       ï¿½ï¿½         ï¿½ï¿½
     { SPR_001em,SPR_001ax,SPR_001cl,SPR_001sp,SPR_001bw },
     { SPR_002em,SPR_002ax,SPR_002cl,SPR_002sp,SPR_002bw },
     { SPR_003em,SPR_003ax,SPR_003cl,SPR_003sp,SPR_003bw },
@@ -313,18 +311,18 @@ int CHAR_eqimagetbl[][5]={
 };
 
 /*------------------------------------------------------------
- * Á¥    Îç  ì«  Ä¯¾®ÈÕÞ¥ØÆÖÐ  ì«  Ä¯Ã«  ÔÂ£Û
- * Â¦ÐÑ
- *  basebaseimagenumber     int             Ýç±åØ¦ÔÂ  ì«  Ä¯
- *  category                ITEM_CATEGORY   Ê§ÄÌ  Ø©¼°ÊÐ  ´òØø
- * ß¯Ô»°À
- *  Þ¥ØÆÖÐ  ì«  Ä¯£Û¾Þ·Â¡õ¼°ÁÝ·´£ý-1
+ * ï¿½ï¿½    ï¿½ï¿½  ï¿½  Ä¯ï¿½ï¿½ï¿½ï¿½Þ¥ï¿½ï¿½ï¿½ï¿½  ï¿½  Ä¯Ã«  ï¿½Â£ï¿½
+ * Â¦ï¿½ï¿½
+ *  basebaseimagenumber     int             ï¿½ï¿½ï¿½Ø¦ï¿½ï¿½  ï¿½  Ä¯
+ *  category                ITEM_CATEGORY   Ê§ï¿½ï¿½  Ø©ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½
+ * ß¯Ô»ï¿½ï¿½
+ *  Þ¥ï¿½ï¿½ï¿½ï¿½  ï¿½  Ä¯ï¿½Û¾Þ·Â¡ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½-1
  ------------------------------------------------------------*/
 int CHAR_getNewImagenumberFromEquip( int basebaseimagenumber,
                                      ITEM_CATEGORY category )
 {
     int i;
-    /*  ITEM_CATEGORY ÃñÄáÓÀÛÍ  */
+    /*  ITEM_CATEGORY ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  */
     if( category < 0 || category > arraysizeof(CHAR_eqimagetbl[0]) )
         return -1;
     for( i=0 ; i<arraysizeof(CHAR_eqimagetbl) ; i++ ){
@@ -338,10 +336,10 @@ int CHAR_getNewImagenumberFromEquip( int basebaseimagenumber,
 
 
 /*------------------------------------------------------------
- * hash °ÀÃ«·Æ»§ÔÂ£Û
- * Â¦ÐÑ
- * ß¯Ô»°À
- *  Ø¦ØÆ
+ * hash ï¿½ï¿½Ã«ï¿½Æ»ï¿½ï¿½Â£ï¿½
+ * Â¦ï¿½ï¿½
+ * ß¯Ô»ï¿½ï¿½
+ *  Ø¦ï¿½ï¿½
  ------------------------------------------------------------*/
 /*
 void CHAR_initSeekGraphicNumberFromString( void )
@@ -381,12 +379,12 @@ void CHAR_initSeekGraphicNumberFromString( void )
 }
 */
 /*------------------------------------------------------------
- *   Ù¯  ¾®ÈÕ  ì«  Ä¯Ã«  ÔÂ£Û
- * Â¦ÐÑ
+ *   Ù¯  ï¿½ï¿½ï¿½ï¿½  ï¿½  Ä¯Ã«  ï¿½Â£ï¿½
+ * Â¦ï¿½ï¿½
  *  string      char*         Ù¯  
- * ß¯Ô»°À
- *  ¾Þ·Â¡õ -1
- *  ¹«Ä¾¶¯Â½·ÖÎçºë·Â°×Å«ÓÀÛÍ  Ä¯
+ * ß¯Ô»ï¿½ï¿½
+ *  ï¿½Þ·Â¡ï¿½ -1
+ *  ï¿½ï¿½Ä¾ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½Â°ï¿½Å«ï¿½ï¿½ï¿½ï¿½  Ä¯
  ------------------------------------------------------------*/
 int CHAR_seekGraphicNumberFromString( char* string )
 {
@@ -394,23 +392,16 @@ int CHAR_seekGraphicNumberFromString( char* string )
     int     i;
     int     ret;
 
-    /* ¹«¼°ÒýÒý¼°ÐÑÙ¯·ÖÔÈÐ×ÈÕ¹«¼°ÒýÒýß¯ÔÊ£Û */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¯ï¿½Ê£ï¿½ */
     if( strtolchecknum( string, &ret,10,INT ) )return ret;
-
-    hashvalue = hashpjw( string );
-//    for( i = 0 ; i < arraysizeof( convertStringNumber ); i ++ )
-    for( i = 0 ; i < cconvertStringNumber ; i ++ )
-        if( convertStringNumber[i].hash == hashvalue )
-            if( strcasecmp( convertStringNumber[i].name , string ) == 0 )
-                return convertStringNumber[i].graphicnumber;
     return -1;
 }
 
 
 
 
-/*====================  ³Äèëô÷====================*/
-/*  ³Äèëô÷Ã«âç  ÔÊÔÂ    */
+/*====================  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½====================*/
+/*  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½    */
 typedef struct tagCHAR_invinsibleArea
 {
     CHAR_AREAKIND   kind;
@@ -422,12 +413,12 @@ CHAR_invincibleArea*    CHAR_invarea;
 int                     CHAR_invareanum;
 
 /*------------------------------------------------------------
- *   ³Äèëô÷¼°âÙÓå¼ÀÃ«ÔÊÔÂ£Û
- * Â¦ÐÑ
- *  filename        char*       É¬ÀÃ°×ÑëÄÌ»ï  
- * ß¯Ô»°À
- *  ÔÀ      TRUE(1)
- *  ÁÃ      FALSE(0)
+ *   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½Â£ï¿½
+ * Â¦ï¿½ï¿½
+ *  filename        char*       É¬ï¿½Ã°ï¿½ï¿½ï¿½ï¿½Ì»ï¿½  
+ * ß¯Ô»ï¿½ï¿½
+ *  ï¿½ï¿½      TRUE(1)
+ *  ï¿½ï¿½      FALSE(0)
  *------------------------------------------------------------*/
 BOOL CHAR_initInvinciblePlace( char* filename )
 {
@@ -444,7 +435,7 @@ BOOL CHAR_initInvinciblePlace( char* filename )
 
     CHAR_invareanum=0;
 
-    /*  ÒýÄÚ  ¶ãØ¦µæ»¥ÖÏµæØ¤ÔÂ¾®Éýµ¤¾®Æ©ÍÍÔÂ    */
+    /*  ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½Ø¦ï¿½æ»¥ï¿½Ïµï¿½Ø¤ï¿½Â¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ©ï¿½ï¿½ï¿½ï¿½    */
     while( fgets( line, sizeof( line ), f ) ){
         linenum ++;
         if( line[0] == '#' )continue;        /* comment */
@@ -468,7 +459,7 @@ BOOL CHAR_initInvinciblePlace( char* filename )
         fclose( f );
         return FALSE;
     }
-    /* âÙÓå¼À */
+    /* ï¿½ï¿½ï¿½ï¿½ï¿½ */
 {
     int     i;
     for( i = 0; i < CHAR_invareanum; i ++ ) {
@@ -520,7 +511,7 @@ BOOL CHAR_initInvinciblePlace( char* filename )
                         break;
                     }
                 if( kind == -1 ){
-                    print( "×ÊÁÏ·¶Î§ÎÊÌâ: %d...",linenum );
+                    print( "ï¿½ï¿½ï¿½Ï·ï¿½Î§ï¿½ï¿½ï¿½ï¿½: %d...",linenum );
                     continue;
                 }
             }
@@ -528,14 +519,14 @@ BOOL CHAR_initInvinciblePlace( char* filename )
             CHAR_invarea[invreadlen].kind = kind;
             ret = getStringFromIndexWithDelim( line, " ", 2, token, sizeof(token));
             if( ret==FALSE ){
-                fprint("ÎÄ¼þÓï·¨´íÎó:%s µÚ%dÐÐ\n",filename,linenum);
+                fprint("ï¿½Ä¼ï¿½ï¿½ï·¨ï¿½ï¿½ï¿½ï¿½:%s ï¿½ï¿½%dï¿½ï¿½\n",filename,linenum);
                 continue;
             }else
                 CHAR_invarea[invreadlen].floor = atoi( token );
 
             ret = getStringFromIndexWithDelim( line, " ", 3, token, sizeof(token));
             if( ret ==FALSE){
-                fprint("ÎÄ¼þÓï·¨´íÎó:%s µÚ%dÐÐ\n",filename,linenum);
+                fprint("ï¿½Ä¼ï¿½ï¿½ï·¨ï¿½ï¿½ï¿½ï¿½:%s ï¿½ï¿½%dï¿½ï¿½\n",filename,linenum);
                 continue;
             }else
                 getFourIntsFromString( token,&lx,&ly,&rx,&ry );
@@ -552,7 +543,7 @@ BOOL CHAR_initInvinciblePlace( char* filename )
     }
     fclose(f);
     CHAR_invareanum = invreadlen;
-    print( "ÓÐÐ§²»¿ÉÕ½¶·ÓÐÐ§ÊýÊÇ %d...", CHAR_invareanum );
+    print( "ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ %d...", CHAR_invareanum );
 
 #ifdef DEBUG
     {
@@ -672,7 +663,7 @@ BOOL CHAR_initAppearPosition( char* filename )
             char    token[256];
             int     ret;
 
-            /*  ·òÎç¹´»§¼°Ðþ¡õÛÍ¼þÃ«Î­ÔÂ    */
+            /*  ï¿½ï¿½ï¿½ç¹´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼ï¿½Ã«Î­ï¿½ï¿½    */
             ret = getStringFromIndexWithDelim( line," ",1,token,
                                                sizeof(token));
             if( ret==FALSE ){
@@ -705,7 +696,7 @@ BOOL CHAR_initAppearPosition( char* filename )
 
     CHAR_appearnum = appearreadlen;
 
-    print( "ÓÐÐ§ÏÔÊ¾Î»ÖÃ·¶Î§ÊýÊÇ %d..", CHAR_appearnum );
+    print( "ï¿½ï¿½Ð§ï¿½ï¿½Ê¾Î»ï¿½Ã·ï¿½Î§ï¿½ï¿½ï¿½ï¿½ %d..", CHAR_appearnum );
 #ifdef DEBUG
 
     {
@@ -794,15 +785,15 @@ BOOL CHAR_getInitElderPosition( Char* ch,int hometown)
 }
 
 /*------------------------------------------------------------
- * ¾Þ»ïÄ¸¡õ¼°èëô÷Ã«  ÔÂ
- * Â¦ÐÑ
- *  elderindex      int     ¾Þ»ïÄ¸¡õÄÌ¼þ·¸ÓÀÛÍµ©
- *  fl              int*    °×·òÊ§Ã«°¾ØêäúÔÂèëô÷
- *  x               int*    xÃ«°¾ØêäúÔÂèëô÷
- *  y               int*    yÃ«°¾ØêäúÔÂèëô÷
- * Â¦ÐÑ
- *  ÔÀ    TRUE(1)
- *  ÁÃ    FALSE(0)
+ * ï¿½Þ»ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«  ï¿½ï¿½
+ * Â¦ï¿½ï¿½
+ *  elderindex      int     ï¿½Þ»ï¿½Ä¸ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Íµï¿½
+ *  fl              int*    ï¿½×·ï¿½Ê§Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *  x               int*    xÃ«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *  y               int*    yÃ«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * Â¦ï¿½ï¿½
+ *  ï¿½ï¿½    TRUE(1)
+ *  ï¿½ï¿½    FALSE(0)
  ------------------------------------------------------------*/
 BOOL CHAR_getElderPosition( int elderindex, int* fl, int* x, int* y )
 {
@@ -814,14 +805,14 @@ BOOL CHAR_getElderPosition( int elderindex, int* fl, int* x, int* y )
     return TRUE;
 }
 /*------------------------------------------------------------
- * Ó®  NPC»¥·ßÛÐ¼°âÙÓå¼À¼°ÎçÎå±å£ýÓ®    ±åÌ¤Îå³ð¸ê¼°·Ö£Û
- * ¹«¼°Ð×»§¼°ÄÌ¼þÕý¡õ°×ÄáÄÌµ©
- * Â¦ÐÑ
- *  index   int ×ó¡õÌï¡õÆ¥ ÁÃ  ØÆÐ×ÈÕFALSE Ã«¾®ÒüÔÊ
- *  fl      int ÞË  ¼°Ê÷  
+ * Ó®  NPCï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó®    ï¿½ï¿½Ì¤ï¿½ï¿½ï¿½ê¼°ï¿½Ö£ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½×»ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½
+ * Â¦ï¿½ï¿½
+ *  index   int ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½FALSE Ã«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ *  fl      int ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½  
  *  x       int
  *  y       int
- * NPC¼°»ï¡õÃñ¼þ¾®ÈÕÒø´õÄ¾ÔÂ¼°·Ö£Û
+ * NPCï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½Â¼ï¿½ï¿½Ö£ï¿½
  ------------------------------------------------------------*/
 BOOL CHAR_ElderSetPosition( int elderindex ,int fl,int x ,int y)
 {
@@ -840,7 +831,7 @@ BOOL CHAR_ElderSetPosition( int elderindex ,int fl,int x ,int y)
 void CHAR_setInitValues( Char* ch )
 {
 
-#ifndef _PROFESSION_SKILL			// WON ADD ÈËÎïÖ°Òµ¼¼ÄÜ
+#ifndef _PROFESSION_SKILL			// WON ADD ï¿½ï¿½ï¿½ï¿½Ö°Òµï¿½ï¿½ï¿½ï¿½
 
     static int CHAR_titleindextbl[] ={ 0,1,2,3,4,5,6 };
     int     elderindex;
@@ -1013,7 +1004,7 @@ static int EnemyExpTbl[]={
 
 
 
-// ½ÍÀÃ¶ÁØ¦·³¶­°À»ÍÒ£
+// ï¿½ï¿½ï¿½Ã¶ï¿½Ø¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£
 int GetEnemyExp( int level ){
 /*
 	int exp = 0;
@@ -1081,7 +1072,7 @@ int GetEnemyExp( int level ){
 };
 */
 #endif
-static int LevelUpTbl[] = { // ¾­ÑéÖµ µÈ¼¶ »»Ëã±í
+static int LevelUpTbl[] = { // ï¿½ï¿½ï¿½ï¿½Öµ ï¿½È¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 0,			//  0 EX=(lv^4)/10
 0,			//  1
 	        2,        8,       25,       62,      129,
@@ -1119,7 +1110,8 @@ int CHAR_GetLevel()
 {	
 	return arraysizeof( LevelUpTbl )-1;
 }
-int CHAR_GetLevelExp( int charaindex, int level)
+int CHAR_GetLevelExp( int charaindex, int level)
+
 {
 #ifdef _NEWOPEN_MAXEXP
 #ifdef _USER_EXP_CF
@@ -1246,7 +1238,7 @@ void CHAR_CheckPetDoLimitlevel( int petindex , int toindex, int level)
 
 		if( strcmp( CHAR_getChar( petindex, CHAR_OWNERCDKEY), CHAR_getChar( toindex, CHAR_CDKEY) ) ||
 			strcmp( CHAR_getChar( petindex, CHAR_OWNERCHARANAME), CHAR_getChar( toindex, CHAR_NAME) )){
-			sprintf(token,"ÎÒ²»ÈÏÊ¶ÄãÑ½£¡¿ì°ÑÎÒ»¹¸øÎÒÖ÷ÈË£¡");
+			sprintf(token,"ï¿½Ò²ï¿½ï¿½ï¿½Ê¶ï¿½ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½");
 			//andy 1/11 reEdit
 			vital -= RAND(2,10);  if (vital<0) vital=0;
 			str -= RAND(2,10);    if (str<0) str=0;
@@ -1263,7 +1255,7 @@ void CHAR_CheckPetDoLimitlevel( int petindex , int toindex, int level)
 					CHAR_getChar( petindex, CHAR_NAME),
 					petindex, 2,
 					CHAR_getInt( petindex, CHAR_LV),
-					"No_master(ÂêÀÙ²»¶ÔÖ÷ÈË)",
+					"No_master(ï¿½ï¿½ï¿½Ù²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)",
 					CHAR_getInt( toindex,CHAR_FLOOR),
 					CHAR_getInt( toindex,CHAR_X ),
 					CHAR_getInt( toindex,CHAR_Y )
@@ -1305,14 +1297,14 @@ void CHAR_CheckPetDoLimitlevel( int petindex , int toindex, int level)
 }
 #endif
 
-int CHAR_PetTakeDrop( int petindex, int floor, int ox, int oy)	//Ç¿ÖÆ¶ªÆú³èÎïÉý¼¶
+int CHAR_PetTakeDrop( int petindex, int floor, int ox, int oy)	//Ç¿ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	int x, y, objindex;
 
 	x = rand()%10;
 	y = rand()%10;
 
-	//¶ªÏÂ³èÎï	CHAR_endCharOneArray
+	//ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½	CHAR_endCharOneArray
 	objindex = PET_dropPetAbsolute( petindex,floor,x,y, FALSE );
 	if( objindex == -1 )	{
 		return -1;
@@ -1326,7 +1318,7 @@ int CHAR_PetTakeDrop( int petindex, int floor, int ox, int oy)	//Ç¿ÖÆ¶ªÆú³èÎïÉý¼
 	return floor;
 }
 
-int CHAR_PetTakeLevelUp( int petindex, int lv)//Ç¿ÖÆ³èÎïÉý¼¶
+int CHAR_PetTakeLevelUp( int petindex, int lv)//Ç¿ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 	int k;
 	for( k = 1; k < lv; k ++ ){
@@ -1363,38 +1355,38 @@ int CHAR_PetLevelUp( int petindex )
 #ifdef _TEACHER_SYSTEM
 	int iGetFame = 0;
 #endif	
-	// Â¦ÐÑÃñÄáÓÀÛÍ
+	// Â¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if( CHAR_CHECKINDEX( petindex ) == FALSE )	return -1;
 	if( CHAR_getInt( petindex, CHAR_WHICHTYPE ) != CHAR_TYPEPET )return -1;
 	
 	LevelUpPoint = CHAR_getInt( petindex, CHAR_ALLOCPOINT );
 	
-	// Ê¸ÓÀÐþ¼°·Â¼þÛÍ
+	// Ê¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½ï¿½
 	petrank = CHAR_getInt( petindex, CHAR_PETRANK );
 	if( petrank < 0 || petrank > 5 ) petrank = 0;
 	
-	// äú  
+	// ï¿½ï¿½  
 	vital = (float)(( LevelUpPoint >> 24 ) & 0xFF);
 	str = (float)(( LevelUpPoint >> 16 ) & 0xFF);
 	tgh = (float)(( LevelUpPoint >> 8 ) & 0xFF);
 	dex = (float)(( LevelUpPoint >> 0 ) & 0xFF);
 	
-	// ¨à¨ß¼Ô¨ã    ÈÓÄÌÎì·òÃ«ÈïÔÈ»¯±¸ÄÛ  ±å¨àóïÔÊ
+	// ï¿½ï¿½ß¼Ô¨ï¿½    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã«ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	for( i = 0; i < 10; i ++ ){
 		Param[RAND( 0, 3 )] += 1.0;
 	}
 	
-	// ·Â¼þÛÍ±å·½ÔÂ  Çø¼°·Â¼þÄ¸Ø©
+	// ï¿½Â¼ï¿½ï¿½Í±å·½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½Ä¸Ø©
 	fRand = (float)RAND( RankRandTbl[petrank].min, RankRandTbl[petrank].max )
 		* 0.01;
 	
-	// à«Ô»ÈïÔ»ºÌÄÌ¼þÐþ·½Ô»»ÍÒ£
+	// ï¿½Ô»ï¿½ï¿½Ô»ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½Ò£
 	vital = (float)vital * fRand + Param[0] * fRand;
 	str = (float)str   * fRand + Param[1] * fRand;
 	tgh = (float)tgh   * fRand + Param[2] * fRand;
 	dex = (float)dex   * fRand + Param[3] * fRand;
 	
-	// »ÍÒ£
+	// ï¿½ï¿½Ò£
 	CHAR_setInt( petindex, CHAR_VITAL,
 		CHAR_getInt( petindex, CHAR_VITAL ) + (int)vital );
 	CHAR_setInt( petindex, CHAR_STR,
@@ -1404,7 +1396,7 @@ int CHAR_PetLevelUp( int petindex )
 	CHAR_setInt( petindex, CHAR_DEX,
 		CHAR_getInt( petindex, CHAR_DEX ) + (int)dex );
 		
-	// CoolFish: ËÇÓý¼Ò×åÉùÍû¸üÐÂ
+	// CoolFish: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		int level = CHAR_getInt(petindex, CHAR_LV);
 		int exp1 = 0, exp2 = 0;
@@ -1424,8 +1416,8 @@ int CHAR_PetLevelUp( int petindex )
 				exp1 = CHAR_GetLevelExp( petindex, level);
 				exp2 = CHAR_GetLevelExp( petindex, level - 1);
 				 
-//#ifdef _PERSONAL_FAME	// Arminius 8.30: ¼Ò×å¸öÈËÉùÍû
-//				feedpoint = (exp1 - exp2) / 20000;	// ¼õ°ë
+//#ifdef _PERSONAL_FAME	// Arminius 8.30: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//				feedpoint = (exp1 - exp2) / 20000;	// ï¿½ï¿½ï¿½ï¿½
 //#else
 //				feedpoint = (exp1 - exp2) / 10000;
 //#endif
@@ -1433,7 +1425,7 @@ int CHAR_PetLevelUp( int petindex )
 					int feedpoint;
 					// CoolFish: 2001/10/03
 					int fd = getfdFromCharaIndex(ownerindex);
-#ifdef _PERSONAL_FAME	// Arminius 8.30: ¼Ò×å¸öÈËÉùÍû
+#ifdef _PERSONAL_FAME	// Arminius 8.30: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					CHAR_earnFame(ownerindex, exp2 / 20000);
 					sprintf(tmpbuf, "%d", exp2 / 20000);
 #endif
@@ -1462,7 +1454,7 @@ int CHAR_PetLevelUp( int petindex )
 						{
 							int i;
 							for(i=0;i<FAMILY_MAXHOME;i++){
-								// ÈÎºÎÒ»¸ö×¯Ô°ÓÐÔÚÌôÕ½ÅÅ³Ì,ÆøÊÆÖµÒ»¸Ä±ä¾ÍÏòACÒª×îÐÂÆøÊÆ×ÊÁÏ
+								// ï¿½Îºï¿½Ò»ï¿½ï¿½×¯Ô°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½Å³ï¿½,ï¿½ï¿½ï¿½ï¿½ÖµÒ»ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ACÒªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								if(fmpointlist.fm_inwar[i]){
 									saacproto_ACShowTopFMList_send(acfd, FM_TOP_MOMENTUM);
 									break;
@@ -1472,7 +1464,7 @@ int CHAR_PetLevelUp( int petindex )
 #endif
 					}
 #ifdef _NEW_MANOR_LAW
-					// Î´ÉóºËÍ¨¹ýÊ±Ö»¸üÐÂ³ÉÔ±ÆøÊÆÖµ
+					// Î´ï¿½ï¿½ï¿½Í¨ï¿½ï¿½Ê±Ö»ï¿½ï¿½ï¿½Â³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Öµ
 					else if(CHAR_getInt(ownerindex, CHAR_FMLEADERFLAG) == FMMEMBER_APPLY){
 						sprintf(tmpbuf,"%d",CHAR_getInt(ownerindex,CHAR_FAME));
 						saacproto_ACFixFMData_send(acfd,
@@ -1493,23 +1485,23 @@ int CHAR_PetLevelUp( int petindex )
 						CHAR_getWorkInt(ownerindex, CHAR_WORKFMCHARINDEX), 0);
 #endif
 #ifdef _TEACHER_SYSTEM
-					iGetFame = feedpoint/20; // µ¼Ê¦»ñµÃÑ§ÉúËùµÃÉùÍûµÄ 5% (1/20)
-					// ¼ì²éËùµÃµÄÉùÍûÓÐÃ»ÓÐ´óì¶0
+					iGetFame = feedpoint/20; // ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5% (1/20)
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ð´ï¿½ï¿½0
 					if(iGetFame > 0){
-						// ¼ì²éÓÐÃ»ÓÐµ¼Ê¦
+						// ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½Ðµï¿½Ê¦
 						if(strlen(CHAR_getChar(ownerindex,CHAR_TEACHER_ID)) > 0 && strlen(CHAR_getChar(ownerindex,CHAR_TEACHER_NAME)) > 0){
 							int iPlayernum = CHAR_getPlayerMaxNum(),i;
 							char szMsg[128];
 							
-							// ¼ì²éµ¼Ê¦ÔÚ²»ÔÚÏßÉÏ
+							// ï¿½ï¿½éµ¼Ê¦ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 							for(i=0;i<iPlayernum;i++){
 								if(CHAR_getCharUse(i) == FALSE) continue;
 								if(strcmp(CHAR_getChar(ownerindex,CHAR_TEACHER_ID),CHAR_getChar(i,CHAR_CDKEY)) == 0 &&
 									strcmp(CHAR_getChar(ownerindex,CHAR_TEACHER_NAME),CHAR_getChar(i,CHAR_NAME)) == 0){
 									float fGetFame = (float)iGetFame/100;
-									// µ¼Ê¦ÔÚÏßÉÏ
+									// ï¿½ï¿½Ê¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 									CHAR_setWorkInt(i,CHAR_WORK_GET_TEACHER_FAME,CHAR_getWorkInt(i,CHAR_WORK_GET_TEACHER_FAME) + iGetFame);
-									sprintf(szMsg,"»ñµÃÑ§Éú %s %.2f µãÉùÍû",CHAR_getChar(ownerindex,CHAR_NAME),fGetFame);
+									sprintf(szMsg,"ï¿½ï¿½ï¿½Ñ§ï¿½ï¿½ %s %.2f ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",CHAR_getChar(ownerindex,CHAR_NAME),fGetFame);
 									CHAR_talkToCli(i,-1,szMsg,CHAR_COLORYELLOW);
 									break;
 								}
@@ -1536,13 +1528,13 @@ int PETFUSION_FusionPetSub( int charaindex, int Subindex1, int Subindex2, int *w
 	}
 
 	if( CHAR_getInt( Subindex1, CHAR_FUSIONBEIT) == 1 ||
-		CHAR_getInt( Subindex1, CHAR_FUSIONRAISE) > 0 )return 0;//¼ì²éÊÇ·ñÎªÈÚºÏ³è
+		CHAR_getInt( Subindex1, CHAR_FUSIONRAISE) > 0 )return 0;//ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ÚºÏ³ï¿½
 	for( i=0; i<4; i++)	{
 		work[i] = 0;
 	}
 	if( PET_getBaseAndSkill( charaindex, Subindex1, base, petskill, 0) == FALSE )
 		return 0;
-	if( CHAR_getInt( Subindex1, CHAR_LV) < 80 ){//µÈ¼¶ÏúÈõ
+	if( CHAR_getInt( Subindex1, CHAR_LV) < 80 ){//ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		for( i=0; i<4; i++)	{
 			base[i] = base[i]*0.8;
 		}
@@ -1559,11 +1551,11 @@ int PETFUSION_FusionPetSub( int charaindex, int Subindex1, int Subindex2, int *w
 	}
 
 	if( CHAR_getInt( Subindex2, CHAR_FUSIONBEIT) == 1 ||
-		CHAR_getInt( Subindex2, CHAR_FUSIONRAISE) > 0 )return 0;//¼ì²éÊÇ·ñÎªÈÚºÏ³è
+		CHAR_getInt( Subindex2, CHAR_FUSIONRAISE) > 0 )return 0;//ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ÚºÏ³ï¿½
 
 	if( PET_getBaseAndSkill( charaindex, Subindex2, base, NULL, 0) == FALSE )
 		return 0;
-	if( CHAR_getInt( Subindex2, CHAR_LV) < 80 ){//µÈ¼¶ÏúÈõ
+	if( CHAR_getInt( Subindex2, CHAR_LV) < 80 ){//ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		for( i=0; i<4; i++)	{
 			base[i] = base[i]*0.8;
 		}
@@ -1584,11 +1576,11 @@ BOOL PETFUSION_FusionPetMain( int charaindex, int Mainindex, int *work, int *ski
 		return 0;
 	}
 	if( CHAR_getInt( Mainindex, CHAR_FUSIONBEIT) == 1 ||
-		CHAR_getInt( Mainindex, CHAR_FUSIONRAISE) > 0 )return FALSE;//¼ì²éÊÇ·ñÎªÈÚºÏ³è
+		CHAR_getInt( Mainindex, CHAR_FUSIONRAISE) > 0 )return FALSE;//ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Îªï¿½ÚºÏ³ï¿½
 
 	if( PET_getBaseAndSkill( charaindex, Mainindex, base, petskill, 0) == FALSE )
 		return -1;
-	if( CHAR_getInt( Mainindex, CHAR_LV) < 80 ){//µÈ¼¶ÏúÈõ
+	if( CHAR_getInt( Mainindex, CHAR_LV) < 80 ){//ï¿½È¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		for( i=0; i<4; i++)	{
 			base[i] = base[i]*0.8;
 		}
@@ -1630,7 +1622,7 @@ BOOL PETFUSION_DelPet( int toindex, int Mainindex, int Subindex1, int Subindex2,
 			snprintf( szPet, sizeof( szPet ), "K%d", j);
 			CHAR_sendStatusString( toindex, szPet );
 
-			snprintf( msgbuf,sizeof( msgbuf), "½»³ö%s¡£", CHAR_getChar( petindex[i], CHAR_NAME));
+			snprintf( msgbuf,sizeof( msgbuf), "ï¿½ï¿½ï¿½ï¿½%sï¿½ï¿½", CHAR_getChar( petindex[i], CHAR_NAME));
 			CHAR_talkToCli( toindex, -1, msgbuf,  CHAR_COLORYELLOW);
 				LogPet(			
 					CHAR_getChar( toindex, CHAR_NAME ),
@@ -1658,13 +1650,13 @@ int PETFUSION_Evolution( int charaindex, int petindex)
 	int newindex=-1;
 	CHAR_setInt( petindex, CHAR_FUSIONTIMELIMIT, -1);
 
-	sprintf( buf, "µ°¡´%s¡µ·õ»¯³É", CHAR_getChar( petindex, CHAR_NAME));
+	sprintf( buf, "ï¿½ï¿½ï¿½ï¿½%sï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", CHAR_getChar( petindex, CHAR_NAME));
 	newindex = EVOLUTION_createPetFromEnemyIndex( charaindex, petindex, 0);
 	if( !CHAR_CHECKINDEX( newindex) ){
-		CHAR_talkToCli( charaindex, -1, "³èÎï·õ»¯·¢Éú´íÎó¡£", CHAR_COLORYELLOW);
+		CHAR_talkToCli( charaindex, -1, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", CHAR_COLORYELLOW);
 		return -1;
 	}
-	sprintf( buf1, "¡´%s¡µ¡£", CHAR_getChar( newindex, CHAR_NAME));
+	sprintf( buf1, "ï¿½ï¿½%sï¿½ï¿½ï¿½ï¿½", CHAR_getChar( newindex, CHAR_NAME));
 	strcat( buf, buf1);
 	CHAR_talkToCli( charaindex, -1, buf, CHAR_COLORYELLOW);
 
@@ -1720,12 +1712,12 @@ int NPC_PetTransManGetAns( int total1, int total2, int LV, int rank )
 	int Fx=1;
 
 	if( LV > 130 ) LV = 130;
-	total = ( (float)total1/100 ); // ÂêÀÙ×î¸ß total1=200
+	total = ( (float)total1/100 ); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ total1=200
 	total = total*total*total*total*total; 
 	if( total < 1 ) total = 0;
-	else total= total*1.3; // ËùÒÔtotal×î´ó=41.6 ×îÐ¡=0
+	else total= total*1.3; // ï¿½ï¿½ï¿½ï¿½totalï¿½ï¿½ï¿½=41.6 ï¿½ï¿½Ð¡=0
 
-	Fx = (int)((5-rank)*1.2)+5; // rank=0~6 ËùÒÔ Fx×î´ó=11(rank=0)×îÐ¡=4(rank=6)
+	Fx = (int)((5-rank)*1.2)+5; // rank=0~6 ï¿½ï¿½ï¿½ï¿½ Fxï¿½ï¿½ï¿½=11(rank=0)ï¿½ï¿½Ð¡=4(rank=6)
 	ans = (int)total + total2 + ((LV-TransLV)/Fx); //42+150+30/11=194
 
 #ifdef _PET_2TRANS
@@ -1833,7 +1825,7 @@ void CHAR_AutoChikulaStone( int charaindex, int Dflg)
 }
 #endif
 
-#ifdef _STATUS_WATERWORD //Ë®ÊÀ½ç×´Ì¬
+#ifdef _STATUS_WATERWORD //Ë®ï¿½ï¿½ï¿½ï¿½×´Ì¬
 void CHAR_CheckWaterStatus( int charaindex)
 {
 	if( !CHAR_CHECKINDEX( charaindex) ) return;
@@ -1847,7 +1839,7 @@ void CHAR_CheckWaterStatus( int charaindex)
 		if( CHAR_getWorkInt( charaindex, CHAR_WORKSTATUSWATER) != 0 &&
 			CHAR_getWorkInt( charaindex, CHAR_WORKSTATUSWATER)%10 == 0 ){
 			char buf1[256];
-			sprintf( buf1, "Ë®ÖÐºôÎüÊ±¼äÊ£Óà%d·Ö¡£",
+			sprintf( buf1, "Ë®ï¿½Ðºï¿½ï¿½ï¿½Ê±ï¿½ï¿½Ê£ï¿½ï¿½%dï¿½Ö¡ï¿½",
 				CHAR_getWorkInt( charaindex, CHAR_WORKSTATUSWATER));
 			CHAR_talkToCli( charaindex, -1, buf1, CHAR_COLORYELLOW);
 		}
@@ -1857,7 +1849,7 @@ void CHAR_CheckWaterStatus( int charaindex)
 		return;
 	}
 	if( CHAR_getWorkInt( charaindex, CHAR_WORKMAPFLOORTYPE) == 1 &&
-		CHAR_getWorkInt( charaindex, CHAR_WORKSTATUSWATER) <= 0 ){//Ë®ÊÀ½ç
+		CHAR_getWorkInt( charaindex, CHAR_WORKSTATUSWATER) <= 0 ){//Ë®ï¿½ï¿½ï¿½ï¿½
 		char token[256];
 		int defhp=0;
 		int maxhp = CHAR_getWorkInt( charaindex, CHAR_WORKMAXHP);
@@ -1865,7 +1857,7 @@ void CHAR_CheckWaterStatus( int charaindex)
 		defhp = (maxhp*0.033);
 		if( defhp <= 0 ) defhp = 1;
 		myhp = myhp - defhp;
-		sprintf( token, "ÒòÎÞ·¨ºôÎü£¬¿Û%d HP¡£", defhp);
+		sprintf( token, "ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d HPï¿½ï¿½", defhp);
 		CHAR_talkToCli( charaindex, -1, token, CHAR_COLORYELLOW);
 
 		if( myhp <= 0 ){
@@ -1920,22 +1912,22 @@ void CHAR_PlayerRide( int charaindex )
 {
 		int i,j;
 		int MetamoList[5][13]={
-		/*{ Ð¡°«×Ó   ÈüÑÇÈË  ±è×ÓÄÐº¢  ¿á¸ç   ÐÜÆ¤ÄÐ   ´ó¸ö    Ð¡°«ÃÃ  ÐÜÆ¤ÃÃ  Ã±×ÓÃÃ  ¶Ì·¢¼ÐÃÃ  ÊÖÌ×Å®   À±ÃÃ    »¢}, ´ËÐÐÎªËµÃ÷ÐÐ */
-			{ 100000, 100025, 100055, 100060, 100095, 100100, 100135, 100145, 100165, 100190, 100200, 100230, 309},	//ºì
-			{ 100005, 100030, 100050, 100065, 100085, 100115, 100120, 100140, 100170, 100195, 100210, 100225, 307},	//ÂÌ
-			{ 100010, 100035, 100045, 100070, 100090, 100110, 100125, 100150, 100160, 100185, 100215, 100220, 310},	//»Æ
-			{ 100015, 100020, 100040, 100075, 100080, 100105, 100130, 100155, 100175, 100180, 100205, 100235, 308},	//»Ò
-			{   331 ,   483 ,   330 ,   332 ,   483 ,   332 ,   333 ,   333 ,   331 ,   330 ,   332 ,   483 ,  0 },	//À×
+		/*{ Ð¡ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½Ðºï¿½  ï¿½ï¿½ï¿½   ï¿½ï¿½Æ¤ï¿½ï¿½   ï¿½ï¿½ï¿½    Ð¡ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½Æ¤ï¿½ï¿½  Ã±ï¿½ï¿½ï¿½ï¿½  ï¿½Ì·ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½Å®   ï¿½ï¿½ï¿½ï¿½    ï¿½ï¿½}, ï¿½ï¿½ï¿½ï¿½ÎªËµï¿½ï¿½ï¿½ï¿½ */
+			{ 100000, 100025, 100055, 100060, 100095, 100100, 100135, 100145, 100165, 100190, 100200, 100230, 309},	//ï¿½ï¿½
+			{ 100005, 100030, 100050, 100065, 100085, 100115, 100120, 100140, 100170, 100195, 100210, 100225, 307},	//ï¿½ï¿½
+			{ 100010, 100035, 100045, 100070, 100090, 100110, 100125, 100150, 100160, 100185, 100215, 100220, 310},	//ï¿½ï¿½
+			{ 100015, 100020, 100040, 100075, 100080, 100105, 100130, 100155, 100175, 100180, 100205, 100235, 308},	//ï¿½ï¿½
+			{   331 ,   483 ,   330 ,   332 ,   483 ,   332 ,   333 ,   333 ,   331 ,   330 ,   332 ,   483 ,  0 },	//ï¿½ï¿½
 		};
 		for(i=0;i<4;i++)
 				for(j=0;j<12;j++)
 				 if(CHAR_getInt( charaindex, CHAR_BASEIMAGENUMBER) == MetamoList[i][j]){
-				 	  if(strstr( getPlayerRide(), "ÅäÌ×ËÍ»¢¼ÓÀ×")){
+				 	  if(strstr( getPlayerRide(), "ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½ï¿½ï¿½ï¿½ï¿½")){
 				 			setNewplayergivepet(3,MetamoList[i][12]);
 				 			setNewplayergivepet(4,MetamoList[4][j]);
-				 		}else if(strstr( getPlayerRide(), "ÅäÌ×ËÍÀ×")){
+				 		}else if(strstr( getPlayerRide(), "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")){
 				 			setNewplayergivepet(4,MetamoList[4][j]);
-				 		}else if(strstr( getPlayerRide(), "ÅäÌ×ËÍ»¢")){
+				 		}else if(strstr( getPlayerRide(), "ï¿½ï¿½ï¿½ï¿½ï¿½Í»ï¿½")){
 				 			setNewplayergivepet(4,MetamoList[i][12]);
 				 		}
 				 		break;

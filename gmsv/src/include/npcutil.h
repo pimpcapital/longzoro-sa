@@ -42,8 +42,8 @@ char *NPC_Util_GetArgStr( int index, char *argstr, int len);
 int NPC_Util_GetNumFromStrWithDelim( char *srcstr, char* in);
 char *NPC_Util_GetStrFromStrWithDelim( char *srcstr, char *srhstr,
 										char *buf, int len);
-inline double NPC_Util_sellRate( int seller );
-inline double NPC_Util_buyRate( int buyer );
+double NPC_Util_sellRate( int seller );
+double NPC_Util_buyRate( int buyer );
 BOOL NPC_Util_IsVisiblePlayer( int meindex);
 BOOL NPC_Util_WordInclude( char *text , char *word );
 void NPC_Util_RandomToken(char *in, char *out, int outbufsize );
@@ -68,11 +68,11 @@ void AddFMAdv(int talker, int shiftbit);
 // Robin 0817 family income
 int addNpcFamilyTax( int meindex, int talkerindex, int income );
 
-#define		NPC_ENEMY_ENEMYNUMBER		10		/* ÇëòØ³Ä    ÐÑ */
+#define		NPC_ENEMY_ENEMYNUMBER		10		/* ï¿½ï¿½ï¿½Ø³ï¿½    ï¿½ï¿½ */
 
-/* Â¦ÐÑ°×ÑëÄÌ»ï  ÐÄ  ÐÄ¼°¨àµæ¼°  Ù¯ÐÑÏþò× */
+/* Â¦ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½Ì»ï¿½  ï¿½ï¿½  ï¿½Ä¼ï¿½ï¿½ï¿½æ¼°  Ù¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 #define NPC_UTIL_GETARGSTR_LINEMAX	4096
-/* Â¦ÐÑ°×ÑëÄÌ»ï¼°  ÐÄ  ÐÄÌïÓÀ°×ÑëÈÓÄÌÊõ*/
+/* Â¦ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½Ì»ï¼°  ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 #ifdef _NEWEVENT
 //#define NPC_UTIL_GETARGSTR_BUFSIZE	1024*1200
 #define NPC_UTIL_GETARGSTR_BUFSIZE	1024*32

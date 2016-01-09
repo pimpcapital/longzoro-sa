@@ -1,67 +1,77 @@
 #ifndef __NPC_SCHEDULEMAN_H__
 #define __NPC_SCHEDULEMAN_H__
 
+#include "common.h"
+#include "char_base.h"
 #define CHARNAME_MAX	32
 
-// ×î´ó scheduleman ÊýÁ¿
+// ï¿½ï¿½ï¿½ scheduleman ï¿½ï¿½ï¿½ï¿½
 #ifdef _FAMILY_MANORNUM_CHANGE
 #define MAX_SCHEDULEMAN	20
 #else
 #define MAX_SCHEDULEMAN	12
 #endif
 
-// Ã¿Ò»¸ö scheduleman ¿Ø¹ÜµÄ schedule ÊýÁ¿
+// Ã¿Ò»ï¿½ï¿½ scheduleman ï¿½Ø¹Üµï¿½ schedule ï¿½ï¿½ï¿½ï¿½
 #define MAX_SCHEDULE	24
 
-// schedule ÁÐ±íµÄÒ»Ò³ËùÄÜÁÐ³öµÄ×î´óÊýÁ¿
+// schedule ï¿½Ð±ï¿½ï¿½Ò»Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define MAXSCHEDULEINONEWINDOW	10
 
-// family ÁÐ±íµÄÒ»Ò³ËùÄÜÁÐ³öµÄ×î´óÊýÁ¿
+// family ï¿½Ð±ï¿½ï¿½Ò»Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Ð³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define MAXFAMILYINONEWINDOW	10
 
-// Ã¿Ò»¸ö scheduleman ËùÊ¹ÓÃµÄ schedule ´¢´æÎ»ÖÃ
-// ¶ÔÓ¦ÔÚ fmpks µÄ ID*MAX_SCHEDULE ÉÏ (ID=0~MAX_SCHEDULEMAN-1)
-// ID ÊÇÐ´ÔÚ data/npc ÖÐÖ¸¶¨¸ø "id:" µÄÖµ
+// Ã¿Ò»ï¿½ï¿½ scheduleman ï¿½ï¿½Ê¹ï¿½Ãµï¿½ schedule ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
+// ï¿½ï¿½Ó¦ï¿½ï¿½ fmpks ï¿½ï¿½ ID*MAX_SCHEDULE ï¿½ï¿½ (ID=0~MAX_SCHEDULEMAN-1)
+// ID ï¿½ï¿½Ð´ï¿½ï¿½ data/npc ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ "id:" ï¿½ï¿½Öµ
 
-// dueltime = (¸ôÌì?10000:0) + (Ð¡Ê±*100)
+// dueltime = (ï¿½ï¿½ï¿½ï¿½?10000:0) + (Ð¡Ê±*100)
+
+enum {
+	NPC_WORK_ID = CHAR_NPCWORKINT1,		// ï¿½Ç¼ï¿½Ô± ID, ï¿½ï¿½ 0 ï¿½ï¿½Ê¼
+	NPC_WORK_CHALLENGETIMEOUT = CHAR_NPCWORKINT2,	// Í¬ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½ timeout
+	NPC_WORK_SETTINGTIMEOUT = CHAR_NPCWORKINT3,	// ï¿½è¶¨ï¿½ï¿½Õ½ï¿½ï¿½ timeout
+	NPC_WORK_PREVIOUSCHECKTIME = CHAR_NPCWORKINT4,	// ï¿½ï¿½Ò»ï¿½Î¼ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	NPC_WORK_FIGHTINTERVAL = CHAR_NPCWORKINT5,	// PK ï¿½ï¿½ï¿½ÎµÄ¼ï¿½ï¿½ (ï¿½ï¿½Î»: ï¿½ï¿½)
+};
 
 typedef struct tagFamilyPKSchedule {
-	int	dueltime;	// ±ÈÈüÊ±¿Ì
-	int	host_index;	// Ö÷¶Ó¼Ò×å
-	char host_name[CHARNAME_MAX];	// Ö÷¶Ó¼Ò×åÃû³Æ
-	int	guest_index;	// ¿Í¶Ó¼Ò×å
-	char guest_name[CHARNAME_MAX];	// ¿Í¶Ó¼Ò×åÃû³Æ
-	int	prepare_time;	// ×¼±¸Ê±¼ä (1~40 ·ÖÖÓ)
-	int	max_player;	// ×î´ó³ö³¡ÈËÊý (1~¼Ò×åÈËÊýÉÏÏÞ)
+	int	dueltime;	// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	int	host_index;	// ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½
+	char host_name[CHARNAME_MAX];	// ï¿½ï¿½ï¿½Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int	guest_index;	// ï¿½Í¶Ó¼ï¿½ï¿½ï¿½
+	char guest_name[CHARNAME_MAX];	// ï¿½Í¶Ó¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int	prepare_time;	// ×¼ï¿½ï¿½Ê±ï¿½ï¿½ (1~40 ï¿½ï¿½ï¿½ï¿½)
+	int	max_player;	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (1~ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 	int	flag;		// ×´Ì¬
-	int	win;		// Ê¤ÀûÌõ¼þÉè¶¨
-	int	challenge_timeout;	// ÌôÕ½Ê±ÏÞ
-	int	setting_timeout;	// Éè¶¨×´Ì¬µÄ timeout
+	int	win;		// Ê¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨
+	int	challenge_timeout;	// ï¿½ï¿½Õ½Ê±ï¿½ï¿½
+	int	setting_timeout;	// ï¿½è¶¨×´Ì¬ï¿½ï¿½ timeout
 	char gmsv_name[256];
 } FamilyPKSchedule;
 
-// ¼ÍÂ¼ÔÚ FamilyPKSchedule (fmpks) µÄ flag Öµ
-#define FMPKS_FLAG_NONE		-1	// Ã»ÓÐÈÎºÎÅÅ³Ì
-#define FMPKS_FLAG_CHALLENGE	0	// µÈ´ý¿Í¶ÓÍ¬ÒâÖÐ
-#define FMPKS_FLAG_SETTING	1	// Ö÷¶ÓÕýÔÚÉè¶¨ÅÅ³Ì (È¡ÏûÊ±±ä³É NONE)
-#define FMPKS_FLAG_CONFIRMING	2	// ¿Í¶ÓÕýÔÚÍ¬ÒâÖÐ
-#define FMPKS_FLAG_SCHEDULED	3	// ÒÑ¾­ÅÅºÃÅÅ³Ì£¬ÉÐÎ´¿ª´ò
-#define FMPKS_FLAG_DUEL		4	// ¿ª´òÖÐ
-#define FMPKS_FLAG_HOSTWIN	5	// Ö÷¶ÓÊ¤
-#define FMPKS_FLAG_GUESTWIN	6	// ¿Í¶ÓÊ¤
-#define FMPKS_FLAG_MANOR_BATTLEBEGIN	7	// ×¯Ô°ÌôÕ½ Õ½¶·ÖÐ
-#define FMPKS_FLAG_MANOR_PREPARE	8	// ×¯Ô°ÌôÕ½ ×¼±¸ÖÐ
-#define FMPKS_FLAG_MANOR_PEACE	9	// ×¯Ô°ÌôÕ½ ÐÝÕ½ÖÐ
-#define FMPKS_FLAG_MANOR_OTHERPLANET	10	// ×¯Ô°ÌôÕ½ ÔÚ±ðµÄÐÇÇò¾öÕ½
-#define FMPKS_FLAG_MANOR_BATTLEEND	11	// ×¯Ô°ÌôÕ½ Õ½¶·½áÊø
-#define FMPKS_FLAG_MANOR_PEACE_SAVE	12	// ½«×¯Ô°ÌôÕ½´æµµ
-#define FMPKS_FLAG_MANOR_READYTOFIGHT	13	// (GM: manorpk) È«ÐÇÏµ±ä³É¿ÉÔ¼Õ½×´Ì¬
-#define FMPKS_FLAG_MANOR_CLEANFLAG	14	// (GM: manorpk) ±¾ÐÇÇòÇå³ý×´Ì¬
+// ï¿½ï¿½Â¼ï¿½ï¿½ FamilyPKSchedule (fmpks) ï¿½ï¿½ flag Öµ
+#define FMPKS_FLAG_NONE		-1	// Ã»ï¿½ï¿½ï¿½Îºï¿½ï¿½Å³ï¿½
+#define FMPKS_FLAG_CHALLENGE	0	// ï¿½È´ï¿½ï¿½Í¶ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_SETTING	1	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½è¶¨ï¿½Å³ï¿½ (È¡ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ NONE)
+#define FMPKS_FLAG_CONFIRMING	2	// ï¿½Í¶ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_SCHEDULED	3	// ï¿½Ñ¾ï¿½ï¿½Åºï¿½ï¿½Å³Ì£ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_DUEL		4	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_HOSTWIN	5	// ï¿½ï¿½ï¿½ï¿½Ê¤
+#define FMPKS_FLAG_GUESTWIN	6	// ï¿½Í¶ï¿½Ê¤
+#define FMPKS_FLAG_MANOR_BATTLEBEGIN	7	// ×¯Ô°ï¿½ï¿½Õ½ Õ½ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_MANOR_PREPARE	8	// ×¯Ô°ï¿½ï¿½Õ½ ×¼ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_MANOR_PEACE	9	// ×¯Ô°ï¿½ï¿½Õ½ ï¿½ï¿½Õ½ï¿½ï¿½
+#define FMPKS_FLAG_MANOR_OTHERPLANET	10	// ×¯Ô°ï¿½ï¿½Õ½ ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½
+#define FMPKS_FLAG_MANOR_BATTLEEND	11	// ×¯Ô°ï¿½ï¿½Õ½ Õ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+#define FMPKS_FLAG_MANOR_PEACE_SAVE	12	// ï¿½ï¿½×¯Ô°ï¿½ï¿½Õ½ï¿½æµµ
+#define FMPKS_FLAG_MANOR_READYTOFIGHT	13	// (GM: manorpk) È«ï¿½ï¿½Ïµï¿½ï¿½É¿ï¿½Ô¼Õ½×´Ì¬
+#define FMPKS_FLAG_MANOR_CLEANFLAG	14	// (GM: manorpk) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
 #ifdef _NEW_MANOR_LAW
-#define FMPKS_FLAG_WAIT		15	// ½øÈëÌôÕ½ÆÚ,ÒÑ¼ÇÂ¼¼Ò×åÆøÊÆ,µÈ´ýÌôÕ½ÅÅ³Ì
+#define FMPKS_FLAG_WAIT		15	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ½ï¿½ï¿½,ï¿½Ñ¼ï¿½Â¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½È´ï¿½ï¿½ï¿½Õ½ï¿½Å³ï¿½
 #endif
 
-// ´«¸ø client µÄ flag
+// ï¿½ï¿½ï¿½ï¿½ client ï¿½ï¿½ flag
 #define FLAG_NONE	-1
 #define FLAG_MODIFY	0
 #define FLAG_ACCEPT	1
@@ -71,6 +81,8 @@ typedef struct tagFamilyPKSchedule {
 
 extern FamilyPKSchedule fmpks[MAX_SCHEDULE*MAX_SCHEDULEMAN];
 
+void NPC_ProcessTimeout(int meindex);	// ï¿½ï¿½ï¿½ï¿½ timeout
+void NPC_RemoveExpiredBattle(int meindex);	// ï¿½Æ³ï¿½ï¿½ï¿½ï¿½Úµï¿½Õ½ï¿½ï¿½
 BOOL NPC_SchedulemanInit(int meindex);
 void NPC_SchedulemanTalked(int meindex, int talkerindex, char *msg, int color);
 void NPC_SchedulemanWindowTalked(int meindex, int talkerindex,

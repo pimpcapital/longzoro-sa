@@ -14,7 +14,7 @@
 #include "handletime.h"
 #include "npc_eventaction.h"
 
-//特地从天堂高薪挖角来的"传送师"
+//锟截地达拷锟斤拷锟矫革拷薪锟节斤拷锟斤拷锟斤拷"锟斤拷锟斤拷师"
 #ifdef _VIP_SHOP
 enum {
 	WINDOW_START=1,
@@ -46,68 +46,6 @@ BOOL VipShop_GetMenuStr( int meindex, int toindex, char *npcarg, char *token, in
 int VipShop_ShowMenulist( char *npcarg );
 
 int page;
-
-BOOL NPC_VipshopInit( int meindex )
-{
-	char npcarg[NPC_UTIL_GETARGSTR_BUFSIZE];
-		
-	if(NPC_Util_GetArgStr( meindex, npcarg, sizeof(npcarg))==NULL){
-		print("TRANSER_MAN: GetArgStrErr!!");
-		return FALSE;
-	}
-
-   	CHAR_setInt( meindex, CHAR_WHICHTYPE, CHAR_TRANSERMANS);
-
-	//CHAR_setInt( meindex, CHAR_LOOPINTERVAL, NEWNPCMAN_STANDBY);
-	CHAR_setWorkInt( meindex, NPC_WORK_CURRENTTIME, NowTime.tv_sec);
-	return TRUE;
-}
-//CHAR_setWorkInt(talkerindex,CHAR_WORKSHOPRELEVANT,1);
-void NPC_VipshopTalked( int meindex, int talkerindex, char *msg, int color )
-{
-	if( CHAR_getInt( talkerindex , CHAR_WHICHTYPE ) != CHAR_TYPEPLAYER )
-    		return;
-	if(NPC_Util_isFaceToFace( meindex ,talkerindex , 2) == FALSE) {
-		if(NPC_Util_isFaceToChara( talkerindex, meindex, 1) == FALSE)
-			return;
-	}
-
-	CHAR_setWorkInt( talkerindex, CHAR_WORKSHOPRELEVANT, 0);
-	NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_START, 0);
-}
-
-void NPC_VipshopWindowTalked( int meindex, int talkerindex, int seqno,
-								int select, char *data)
-{
-	if( select == WINDOW_BUTTONTYPE_CANCEL || select == WINDOW_BUTTONTYPE_NO)
-		return;
-	switch( seqno)	{
-	case NPC_TRANSERMAN_START:
-		break;
-	case NPC_TRANSERMAN_SELECT:
-		NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_SELECT, atoi( data));
-		break;
-	case NPC_TRANSERMAN_WARP:
-		if( select == WINDOW_BUTTONTYPE_CANCEL )
-			return;
-		if( select == WINDOW_BUTTONTYPE_NEXT )
-		{
-				NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_NEXT, atoi( data));
-				return;
-		}
-		if( select == WINDOW_BUTTONTYPE_PREV )
-		{
-				NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_PREV, atoi( data));
-				return;
-		}
-		NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_WARP, atoi( data));
-		break;
-	case NPC_TRANSERMAN_END:
-		NPC_VipShop_selectWindow( meindex, talkerindex, WINDOW_END, atoi( data));
-		break;
-	}
-
-}
 
 static void NPC_VipShop_selectWindow( int meindex, int toindex, int num,int select)
 {
@@ -209,49 +147,6 @@ static void NPC_VipShop_selectWindow( int meindex, int toindex, int num,int sele
 	lssproto_WN_send( fd, windowtype, buttontype, windowno,
 		CHAR_getWorkInt( meindex, CHAR_WORKOBJINDEX), token);
 }
-
-
-void NPC_VipshopLoop( int meindex)
-{
-
-}
-
-BOOL VipShop_GetMenuStr( int meindex, int toindex, char *npcarg, char *token,int index )
-{
-	char buf1[1024], buf2[32], buf3[36];
-	BOOL FINDS=FALSE;
-	int talkNo=index*7+1;
-	if( npcarg == NULL ) return FALSE;
-	
-	sprintf( token, "你当前的会员点数是:%d        %d/%d页\n",CHAR_getInt( toindex , CHAR_AMPOINT), index+1, page);
-	while( getStringFromIndexWithDelim( npcarg,"}",talkNo, buf1, sizeof( buf1)) != FALSE )	{
-		talkNo++;
-		memset( buf2, 0, sizeof( buf2));
-		if( NPC_Util_GetStrFromStrWithDelim( buf1, "MenuStr", buf2, sizeof( buf2)) == NULL  )
-			continue;
-		FINDS = TRUE;
-
-		sprintf( buf3, "    %s", buf2);
-		if(strlen(buf3)<10)
-			strcat( buf3, "　　　\n");
-		else
-			strcat( buf3, "\n");
-		strcat( token, buf3);
-		if(talkNo>(index*7+8))return FINDS;
-	}
-	return FINDS;
-}
-
-int VipShop_ShowMenulist( char *npcarg )
-{
-	char buf1[1024];
-	int talkNo=1;
-	while( getStringFromIndexWithDelim( npcarg,"}",talkNo, buf1, sizeof( buf1)) != FALSE )	{
-		talkNo++;
-	}
-	return (talkNo-3)/7+1;
-}
-
 #endif
 
 
